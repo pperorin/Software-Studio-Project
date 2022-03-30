@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CE\\3D\\Sem2\\Software Studio\\Software-Studio-Project\\Software-Studio-Project.csproj",
-      "projectName": "Software-Studio-Project",
-      "projectPath": "D:\\CE\\3D\\Sem2\\Software Studio\\Software-Studio-Project\\Software-Studio-Project.csproj",
+      "projectUniqueName": "D:\\CE\\3D\\Sem2\\Software Studio\\Software-Studio-Project\\server\\server.csproj",
+      "projectName": "server",
+      "projectPath": "D:\\CE\\3D\\Sem2\\Software Studio\\Software-Studio-Project\\server\\server.csproj",
       "packagesPath": "C:\\Users\\Zen\\.nuget\\packages\\",
-      "outputPath": "D:\\CE\\3D\\Sem2\\Software Studio\\Software-Studio-Project\\obj\\",
+      "outputPath": "D:\\CE\\3D\\Sem2\\Software Studio\\Software-Studio-Project\\server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Zen\\AppData\\Roaming\\NuGet\\NuGet.Config"
