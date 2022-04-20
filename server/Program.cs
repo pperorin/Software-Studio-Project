@@ -1,6 +1,22 @@
+using BookStoreApi.Models;
+using BookStoreApi.Services;
+
+using UserApi.Models;
+using UserApi.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.Configure<BookStoreDatabaseSettings>(
+    builder.Configuration.GetSection("BookStoreDatabase"));
+
+builder.Services.AddSingleton<BooksService>();
+
+builder.Services.Configure<UserDatabaseSettings>(
+    builder.Configuration.GetSection("UserDatabase"));
+
+builder.Services.AddSingleton<UsersService>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
