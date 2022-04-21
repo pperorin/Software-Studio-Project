@@ -7,6 +7,9 @@ using UserApi.Services;
 using SubjectApi.Models;
 using SubjectApi.Services;
 
+using CommentApi.Models;
+using CommentApi.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,15 +18,28 @@ builder.Services.Configure<BookStoreDatabaseSettings>(
 
 builder.Services.AddSingleton<BooksService>();
 
+
+
 builder.Services.Configure<UserDatabaseSettings>(
     builder.Configuration.GetSection("UserDatabase"));
 
 builder.Services.AddSingleton<UsersService>();
 
+
+
 builder.Services.Configure<SubjectDatabaseSettings>(
     builder.Configuration.GetSection("SubjectDatabase"));
 
 builder.Services.AddSingleton<SubjectService>();
+
+
+
+builder.Services.Configure<CommentDatabaseSettings>(
+    builder.Configuration.GetSection("CommentDatabase"));
+
+builder.Services.AddSingleton<CommentService>();
+
+
 
 builder.Services.AddControllersWithViews();
 
