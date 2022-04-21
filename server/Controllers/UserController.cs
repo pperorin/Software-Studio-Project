@@ -55,6 +55,31 @@ public class UsersController : ControllerBase
         return NoContent();
     }
 
+    [HttpPut("editPassword/{id:length(24)}")]
+    public async Task<IActionResult> EditPassword(string id, User editUser)
+    {
+        var user = await _usersService.GetAsync(id);
+
+        if (user is null)
+        {
+            return NotFound();
+        }
+
+        if (editUser.Password == user.Password){
+
+            editUser.Id = user.Id;
+            editUser.Password = editUser.NewPassword;
+            editUser.NewPassword = null;
+
+            await _usersService.UpdateAsync(id, editUser);
+
+            return Ok("Change Password Succesfull");
+        }
+        else{
+            return Ok("Wrong Password");
+        }
+    }
+
     [HttpDelete("{id:length(24)}")]
     public async Task<IActionResult> Delete(string id)
     {
@@ -69,4 +94,5 @@ public class UsersController : ControllerBase
 
         return NoContent();
     }
+
 }

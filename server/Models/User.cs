@@ -15,6 +15,8 @@ public class User
 
     public string Password { get; set; } = null!;
 
+    public string? NewPassword { get; set; }
+
     public Boolean IsAdmin { get; set; } = false;
 
     public Boolean IsBan { get; set; } = false;
