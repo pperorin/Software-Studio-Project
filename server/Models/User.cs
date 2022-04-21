@@ -11,9 +11,9 @@ public class User
 
     // [BsonElement("Firstname")]
     // [BsonElement("Lastname")]
-    public string Username { get; set; } = null!;
+    public string? Username { get; set; }
 
-    public string Password { get; set; } = null!;
+    public string? Password { get; set; }
 
     public string? NewPassword { get; set; }
 

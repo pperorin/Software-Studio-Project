@@ -55,6 +55,60 @@ public class UsersController : ControllerBase
         return NoContent();
     }
 
+    [HttpPut("ban/{id:length(24)}")]
+    public async Task<IActionResult> BanUser(string id, User updatedUser)
+    {
+        var user = await _usersService.GetAsync(id);
+
+        if (user is null)
+        {
+            return NotFound();
+        }
+
+        if(user.IsBan != true){
+
+            updatedUser.Id = user.Id;
+            updatedUser.Username = user.Username;
+            updatedUser.Password = user.Password;
+            updatedUser.IsBan = true;
+
+            await _usersService.UpdateAsync(id, updatedUser);
+
+            return Ok("Ban SuccessFull");     
+        }
+        else{
+            return Ok("Baned");    
+        }
+        
+    }
+
+    [HttpPut("unlockban/{id:length(24)}")]
+    public async Task<IActionResult> UnlockBanUser(string id, User updatedUser)
+    {
+        var user = await _usersService.GetAsync(id);
+
+        if (user is null)
+        {
+            return NotFound();
+        }
+
+        if(user.IsBan != false){
+
+            updatedUser.Id = user.Id;
+            updatedUser.Username = user.Username;
+            updatedUser.Password = user.Password;
+            updatedUser.IsBan = false;
+
+            await _usersService.UpdateAsync(id, updatedUser);
+
+            return Ok("Unlock Ban SuccessFull");     
+        }
+        else{
+            return Ok("Doesn't Ban");    
+        }
+        
+    }
+
     [HttpPut("editPassword/{id:length(24)}")]
     public async Task<IActionResult> EditPassword(string id, User editUser)
     {
@@ -92,7 +146,7 @@ public class UsersController : ControllerBase
 
         await _usersService.RemoveAsync(id);
 
-        return NoContent();
+        return Ok("Delete Successfull");
     }
 
 }

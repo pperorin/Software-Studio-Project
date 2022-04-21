@@ -1,9 +1,6 @@
 using SubjectApi.Models;
 using SubjectApi.Services;
 using Microsoft.AspNetCore.Mvc;
-using UserApi.Services;
-using SubjectApi.Controllers;
-using UserApi.Controllers;
 
 namespace SubjectApi.Controllers;
 
@@ -61,28 +58,13 @@ public class SubjectController : ControllerBase
         }
 
         updatedSubject.Id = subject.Id;
+        updatedSubject.User_ID = subject.User_ID;
+        updatedSubject.Username = subject.Username;
+        updatedSubject.Title = subject.Title;
 
         await _subjectService.UpdateAsync(id, updatedSubject);
 
-        return NoContent();
-    }
-
-    [HttpPut("addcomment/{id:length(24)}")]
-    public async Task<IActionResult> AddComment(string id, CommentSub comment)
-    {
-        var subject = await _subjectService.GetAsync(id);
-
-        if (subject is null)
-        {
-            return NotFound();
-        }
-
-        comment.Created_At = DateTime.Now;
-        subject.Comments.Add(comment);
-
-        await _subjectService.UpdateAsync(id, subject);
-
-        return NoContent();
+        return CreatedAtAction(nameof(Get),updatedSubject);
     }
 
     [HttpDelete("{id:length(24)}")]
@@ -97,6 +79,6 @@ public class SubjectController : ControllerBase
 
         await _subjectService.RemoveAsync(id);
 
-        return NoContent();
+        return Ok("Delete Successfull");
     }
 }

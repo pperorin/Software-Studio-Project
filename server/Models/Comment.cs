@@ -1,9 +1,8 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace SubjectApi.Models;
-
-public class Subject
+namespace CommentApi.Models;
+public class Comment
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
@@ -11,10 +10,10 @@ public class Subject
 
     public string? User_ID { get; set; }
 
+    public string? Subject_ID { get; set; }
+
     public string? Username { get; set; }
-
-    public string? Title { get; set; }
-
+    
     public string Desc { get; set; } = null!;
 
     public Boolean IsHide { get; set; } = false;
@@ -24,8 +23,6 @@ public class Subject
     public DateTime Updated_At { get; set; }
 
     public List<CountLike> CountLikes { get; set; } = new List<CountLike>();
-  
-    public Boolean IsAnouncement { get; set; } = false;
 }
 
 public class CountLike
