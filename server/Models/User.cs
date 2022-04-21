@@ -11,9 +11,11 @@ public class User
 
     // [BsonElement("Firstname")]
     // [BsonElement("Lastname")]
-    public string Firstname { get; set; } = null!;
+    public string Username { get; set; } = null!;
 
-    public string Lastname { get; set; } = null!;
+    public string Password { get; set; } = null!;
 
-    public Boolean Admin { get; set; } = false;
+    public Boolean IsAdmin { get; set; } = false;
+
+    public Boolean IsBan { get; set; } = false;
 }
