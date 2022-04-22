@@ -1,6 +1,7 @@
 using SubjectApi.Models;
 using SubjectApi.Services;
 using Microsoft.AspNetCore.Mvc;
+using UserApi.Services;
 
 namespace SubjectApi.Controllers;
 
@@ -10,8 +11,12 @@ public class SubjectController : ControllerBase
 {
     private readonly SubjectService _subjectService;
 
-    public SubjectController(SubjectService subjectService) =>
+    public SubjectController(SubjectService subjectService,UsersService usersService) {
         _subjectService = subjectService;
+        _usersService = usersService;
+    }
+
+    private readonly UsersService _usersService;
 
     [HttpGet]
     public async Task<List<Subject>> Get() =>
@@ -33,7 +38,10 @@ public class SubjectController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post(Subject newSubject)
     {
-        if(newSubject.User_ID != null){
+
+        var user = await _usersService.GetAsync(newSubject.User_ID);
+
+        if(user.IsBan != true){
             newSubject.Created_At = DateTime.Now;
 
             await _subjectService.CreateAsync(newSubject);
@@ -41,7 +49,7 @@ public class SubjectController : ControllerBase
             return CreatedAtAction(nameof(Get), new { id = newSubject.Id }, newSubject);
         }
         else{
-            return Ok("pls login");
+            return Ok("You are ban.");
         }
         
     }
@@ -65,6 +73,62 @@ public class SubjectController : ControllerBase
         await _subjectService.UpdateAsync(id, updatedSubject);
 
         return CreatedAtAction(nameof(Get),updatedSubject);
+    }
+
+    [HttpPut("hide/{id:length(24)}")]
+    public async Task<IActionResult> Hide(string id, Subject updatedSubject)
+    {
+        var subject = await _subjectService.GetAsync(id);
+
+        if (subject is null)
+        {
+            return NotFound();
+        }
+
+        if(subject.IsHide != true){
+
+            updatedSubject.Id = subject.Id;
+            updatedSubject.User_ID = subject.User_ID;
+            updatedSubject.Username = subject.Username;
+            updatedSubject.Title = subject.Title;
+            updatedSubject.Desc = subject.Desc;
+            updatedSubject.IsHide = true;
+
+            await _subjectService.UpdateAsync(id, updatedSubject);
+
+            return Ok("Hide SuccessFull");     
+        }
+        else{
+            return Ok("Hided");    
+        }
+    }
+
+    [HttpPut("appear/{id:length(24)}")]
+    public async Task<IActionResult> Appear(string id, Subject updatedSubject)
+    {
+        var subject = await _subjectService.GetAsync(id);
+
+        if (subject is null)
+        {
+            return NotFound();
+        }
+
+        if(subject.IsHide != false){
+
+            updatedSubject.Id = subject.Id;
+            updatedSubject.User_ID = subject.User_ID;
+            updatedSubject.Username = subject.Username;
+            updatedSubject.Title = subject.Title;
+            updatedSubject.Desc = subject.Desc;
+            updatedSubject.IsHide = false;
+
+            await _subjectService.UpdateAsync(id, updatedSubject);
+
+            return Ok("Appear SuccessFull");     
+        }
+        else{
+            return Ok("Appeared");    
+        }
     }
 
     [HttpDelete("{id:length(24)}")]

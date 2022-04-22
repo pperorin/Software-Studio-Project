@@ -14,7 +14,7 @@ public class Comment
 
     public string? Username { get; set; }
     
-    public string Desc { get; set; } = null!;
+    public string? Desc { get; set; }
 
     public Boolean IsHide { get; set; } = false;
 

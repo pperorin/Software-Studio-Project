@@ -65,7 +65,9 @@ public class UsersController : ControllerBase
             return NotFound();
         }
 
-        if(user.IsBan != true){
+        if(user.IsAdmin != true){
+
+            if(user.IsBan != true){
 
             updatedUser.Id = user.Id;
             updatedUser.Username = user.Username;
@@ -75,11 +77,18 @@ public class UsersController : ControllerBase
             await _usersService.UpdateAsync(id, updatedUser);
 
             return Ok("Ban SuccessFull");     
+            }
+            else{
+                return Ok("Baned");    
+            }
+
         }
         else{
-            return Ok("Baned");    
+
+            return Ok("This is Admin!!!");  
+
         }
-        
+       
     }
 
     [HttpPut("unlockban/{id:length(24)}")]
@@ -92,7 +101,9 @@ public class UsersController : ControllerBase
             return NotFound();
         }
 
-        if(user.IsBan != false){
+        if(user.IsAdmin != true){
+
+            if(user.IsBan != false){
 
             updatedUser.Id = user.Id;
             updatedUser.Username = user.Username;
@@ -102,11 +113,33 @@ public class UsersController : ControllerBase
             await _usersService.UpdateAsync(id, updatedUser);
 
             return Ok("Unlock Ban SuccessFull");     
+            
+            }
+            else{
+                return Ok("Doesn't Ban");    
+            }
+
         }
         else{
-            return Ok("Doesn't Ban");    
+
+            return Ok("This is Admin!!!");  
+
         }
         
+    }
+
+    [HttpPut("checkadmin/{id:length(24)}")]
+    public async Task<Boolean> CheckAdmin(string id, User updatedUser)
+    {
+        var user = await _usersService.GetAsync(id);
+
+        if (user.IsAdmin == true)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }    
     }
 
     [HttpPut("editPassword/{id:length(24)}")]
