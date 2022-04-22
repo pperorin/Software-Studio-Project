@@ -15,7 +15,7 @@ public class Subject
 
     public string? Title { get; set; }
 
-    public string Desc { get; set; } = null!;
+    public string? Desc { get; set; }
 
     public Boolean IsHide { get; set; } = false;
 
@@ -23,12 +23,7 @@ public class Subject
 
     public DateTime Updated_At { get; set; }
 
-    public List<CountLike> CountLikes { get; set; } = new List<CountLike>();
+    public List<string> CountLikes { get; set; } = new List<string>();
   
     public Boolean IsAnouncement { get; set; } = false;
-}
-
-public class CountLike
-{
-    public string? User_ID { get; set; }
 }
