@@ -42,6 +42,7 @@ public class SubjectController : ControllerBase
         var user = await _usersService.GetAsync(newSubject.User_ID);
 
         if(user.IsBan != true){
+
             newSubject.Created_At = DateTime.Now;
 
             await _subjectService.CreateAsync(newSubject);
@@ -100,6 +101,7 @@ public class SubjectController : ControllerBase
             updatedSubject.CountLikes = subject.CountLikes;
             updatedSubject.IsHide = subject.IsHide;
             updatedSubject.Created_At = subject.Created_At;
+            updatedSubject.Updated_At = subject.Updated_At;
             updatedSubject.CountLikes = subject.CountLikes;
             updatedSubject.IsAnouncement = true;
 
@@ -133,6 +135,7 @@ public class SubjectController : ControllerBase
             updatedSubject.CountLikes = subject.CountLikes;
             updatedSubject.IsHide = subject.IsHide;
             updatedSubject.Created_At = subject.Created_At;
+            updatedSubject.Updated_At = subject.Updated_At;
             updatedSubject.CountLikes = subject.CountLikes;
             updatedSubject.IsAnouncement = false;
 
@@ -166,6 +169,7 @@ public class SubjectController : ControllerBase
             updatedSubject.CountLikes = subject.CountLikes;
             updatedSubject.IsHide = true;
             updatedSubject.Created_At = subject.Created_At;
+            updatedSubject.Updated_At = subject.Updated_At;
             updatedSubject.CountLikes = subject.CountLikes;
             updatedSubject.IsAnouncement = subject.IsAnouncement;
 
@@ -198,6 +202,7 @@ public class SubjectController : ControllerBase
             updatedSubject.CountLikes = subject.CountLikes;
             updatedSubject.IsHide = false;
             updatedSubject.Created_At = subject.Created_At;
+            updatedSubject.Updated_At = subject.Updated_At;
             updatedSubject.CountLikes = subject.CountLikes;
             updatedSubject.IsAnouncement = subject.IsAnouncement;
 
@@ -232,6 +237,7 @@ public class SubjectController : ControllerBase
             updatedSubject.CountLikes = subject.CountLikes;
             updatedSubject.IsHide = subject.IsHide;
             updatedSubject.Created_At = subject.Created_At;
+            updatedSubject.Updated_At = subject.Updated_At;
             updatedSubject.CountLikes = subject.CountLikes;
             updatedSubject.IsAnouncement = subject.IsAnouncement;
             updatedSubject.CountLikes.Add(iduser);
@@ -250,6 +256,7 @@ public class SubjectController : ControllerBase
             updatedSubject.CountLikes = subject.CountLikes;
             updatedSubject.IsHide = subject.IsHide;
             updatedSubject.Created_At = subject.Created_At;
+            updatedSubject.Updated_At = subject.Updated_At;
             updatedSubject.CountLikes = subject.CountLikes;
             updatedSubject.IsAnouncement = subject.IsAnouncement;
             updatedSubject.CountLikes.Remove(iduser);
