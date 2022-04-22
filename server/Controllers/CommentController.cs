@@ -130,6 +130,78 @@ public class CommentController : ControllerBase
         }
     }
 
+[HttpPut("like/{id:length(24)}")]
+    public async Task<IActionResult> Like(string id, Comment updatedComment)
+    {
+        var comment = await _commentService.GetAsync(id);
+
+        var user = await _usersService.GetAsync(updatedComment.User_ID);
+        string iduser = updatedComment.User_ID;
+
+        if (comment is null)
+        {
+            return NotFound();
+        }
+
+        if(user.IsBan != true && comment.CountLikes.Contains(iduser) == false){
+
+            updatedComment.Id = comment.Id;
+            updatedComment.Username = comment.Username;
+            updatedComment.User_ID = comment.User_ID;
+            updatedComment.Subject_ID = comment.Subject_ID;
+            updatedComment.Desc = comment.Desc;
+            updatedComment.CountLikes = comment.CountLikes;
+            updatedComment.CountLikes.Add(iduser);
+            
+            await _commentService.UpdateAsync(id, updatedComment);
+
+            return Ok("Like SuccessFull");     
+        }
+        else if(user.IsBan != true && comment.CountLikes.Contains(iduser)){
+
+            updatedComment.Id = comment.Id;
+            updatedComment.Username = comment.Username;
+            updatedComment.User_ID = comment.User_ID;
+            updatedComment.Subject_ID = comment.Subject_ID;
+            updatedComment.Desc = comment.Desc;
+            updatedComment.CountLikes = comment.CountLikes;
+            updatedComment.CountLikes.Remove(iduser);
+            
+            await _commentService.UpdateAsync(id, updatedComment);
+
+            return Ok("Unlike SuccessFull");     
+
+        }
+        else{
+
+            return Ok("You are ban.");    
+
+        }
+    }
+
+    [HttpPut("countlike/{id:length(24)}")]
+    public async Task<int> CountLike(string id, Comment updatedComment)
+    {
+        var comment = await _commentService.GetAsync(id);
+
+
+        if (comment is null)
+        {
+            return 0;
+        }
+
+        updatedComment.Id = comment.Id;
+        updatedComment.Username = comment.Username;
+        updatedComment.User_ID = comment.User_ID;
+        updatedComment.Subject_ID = comment.Subject_ID;
+        updatedComment.Desc = comment.Desc;
+        updatedComment.CountLikes = comment.CountLikes;
+
+        await _commentService.UpdateAsync(id, updatedComment);
+
+        return comment.CountLikes.Count();     
+
+    }
 
     [HttpDelete("{id:length(24)}")]
     public async Task<IActionResult> Delete(string id)

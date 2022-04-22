@@ -131,6 +131,77 @@ public class SubjectController : ControllerBase
         }
     }
 
+    [HttpPut("like/{id:length(24)}")]
+    public async Task<IActionResult> Like(string id, Subject updatedSubject)
+    {
+        var subject = await _subjectService.GetAsync(id);
+        var user = await _usersService.GetAsync(updatedSubject.User_ID);
+        string iduser = updatedSubject.User_ID;
+
+        if (subject is null)
+        {
+            return NotFound();
+        }
+
+        if(user.IsBan != true && subject.CountLikes.Contains(iduser) == false){
+
+            updatedSubject.Id = subject.Id;
+            updatedSubject.Username = subject.Username;
+            updatedSubject.User_ID = subject.User_ID;
+            updatedSubject.Title = subject.Title;
+            updatedSubject.Desc = subject.Desc;
+            updatedSubject.CountLikes = subject.CountLikes;
+            updatedSubject.CountLikes.Add(iduser);
+            
+            await _subjectService.UpdateAsync(id, updatedSubject);
+
+            return Ok("Like SuccessFull");     
+        }
+        else if(user.IsBan != true && subject.CountLikes.Contains(iduser)){
+
+            updatedSubject.Id = subject.Id;
+            updatedSubject.Username = subject.Username;
+            updatedSubject.User_ID = subject.User_ID;
+            updatedSubject.Title = subject.Title;
+            updatedSubject.Desc = subject.Desc;
+            updatedSubject.CountLikes = subject.CountLikes;
+            updatedSubject.CountLikes.Remove(iduser);
+            
+            await _subjectService.UpdateAsync(id, updatedSubject);
+
+            return Ok("Unlike SuccessFull");     
+
+        }
+        else{
+
+            return Ok("You are ban.");    
+
+        }
+    }
+
+    [HttpPut("countlike/{id:length(24)}")]
+    public async Task<int> CountLike(string id, Subject updatedSubject)
+    {
+        var subject = await _subjectService.GetAsync(id);
+
+        if (subject is null)
+        {
+            return 0;
+        }
+
+        updatedSubject.Id = subject.Id;
+        updatedSubject.Username = subject.Username;
+        updatedSubject.User_ID = subject.User_ID;
+        updatedSubject.Title = subject.Title;
+        updatedSubject.Desc = subject.Desc;
+        updatedSubject.CountLikes = subject.CountLikes;
+
+        await _subjectService.UpdateAsync(id, updatedSubject);
+
+        return subject.CountLikes.Count();     
+
+    }
+
     [HttpDelete("{id:length(24)}")]
     public async Task<IActionResult> Delete(string id)
     {

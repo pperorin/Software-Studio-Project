@@ -22,10 +22,5 @@ public class Comment
 
     public DateTime Updated_At { get; set; }
 
-    public List<CountLike> CountLikes { get; set; } = new List<CountLike>();
-}
-
-public class CountLike
-{
-    public string? User_ID { get; set; }
+    public List<string> CountLikes { get; set; } = new List<string>();
 }
