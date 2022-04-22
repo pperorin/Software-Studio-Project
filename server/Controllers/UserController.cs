@@ -113,7 +113,7 @@ public class UsersController : ControllerBase
             await _usersService.UpdateAsync(id, updatedUser);
 
             return Ok("Unlock Ban SuccessFull");     
-            
+
             }
             else{
                 return Ok("Doesn't Ban");    
@@ -157,6 +157,9 @@ public class UsersController : ControllerBase
             editUser.Id = user.Id;
             editUser.Password = editUser.NewPassword;
             editUser.NewPassword = null;
+            editUser.IsAdmin = user.IsAdmin;
+            editUser.Username = user.Username;
+            editUser.IsBan = user.IsBan;
 
             await _usersService.UpdateAsync(id, editUser);
 

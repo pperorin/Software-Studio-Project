@@ -206,18 +206,6 @@ public class CommentController : ControllerBase
             return 0;
         }
 
-        updatedComment.Id = comment.Id;
-        updatedComment.User_ID = comment.User_ID;
-        updatedComment.Username = comment.Username;
-        updatedComment.Subject_ID = comment.Subject_ID;
-        updatedComment.Desc = comment.Desc;
-        updatedComment.IsHide = comment.IsHide;
-        updatedComment.Created_At = comment.Created_At;
-        updatedComment.Updated_At = comment.Updated_At;
-        updatedComment.CountLikes = comment.CountLikes;
-
-        await _commentService.UpdateAsync(id, updatedComment);
-
         return comment.CountLikes.Count();     
 
     }

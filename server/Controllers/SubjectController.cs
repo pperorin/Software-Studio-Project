@@ -283,19 +283,6 @@ public class SubjectController : ControllerBase
             return 0;
         }
 
-        updatedSubject.Id = subject.Id;
-        updatedSubject.User_ID = subject.User_ID;
-        updatedSubject.Username = subject.Username;
-        updatedSubject.Title = subject.Title;
-        updatedSubject.Desc = subject.Desc;
-        updatedSubject.CountLikes = subject.CountLikes;
-        updatedSubject.IsHide = subject.IsHide;
-        updatedSubject.Created_At = subject.Created_At;
-        updatedSubject.CountLikes = subject.CountLikes;
-        updatedSubject.IsAnouncement = subject.IsAnouncement;
-
-        await _subjectService.UpdateAsync(id, updatedSubject);
-
         return subject.CountLikes.Count();     
 
     }
