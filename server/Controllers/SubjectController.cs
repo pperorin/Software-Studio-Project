@@ -69,10 +69,81 @@ public class SubjectController : ControllerBase
         updatedSubject.User_ID = subject.User_ID;
         updatedSubject.Username = subject.Username;
         updatedSubject.Title = subject.Title;
+        updatedSubject.CountLikes = subject.CountLikes;
+        updatedSubject.IsHide = subject.IsHide;
+        updatedSubject.Created_At = subject.Created_At;
+        updatedSubject.CountLikes = subject.CountLikes;
+        updatedSubject.IsAnouncement = subject.IsAnouncement;
 
         await _subjectService.UpdateAsync(id, updatedSubject);
 
         return CreatedAtAction(nameof(Get),updatedSubject);
+    }
+
+    [HttpPut("anouncement/{id:length(24)}")]
+    public async Task<IActionResult> Anouncement(string id, Subject updatedSubject)
+    {
+        var subject = await _subjectService.GetAsync(id);
+
+        if (subject is null)
+        {
+            return NotFound();
+        }
+
+        if(subject.IsAnouncement != true){
+
+            updatedSubject.Id = subject.Id;
+            updatedSubject.User_ID = subject.User_ID;
+            updatedSubject.Username = subject.Username;
+            updatedSubject.Title = subject.Title;
+            updatedSubject.Desc = subject.Desc;
+            updatedSubject.CountLikes = subject.CountLikes;
+            updatedSubject.IsHide = subject.IsHide;
+            updatedSubject.Created_At = subject.Created_At;
+            updatedSubject.CountLikes = subject.CountLikes;
+            updatedSubject.IsAnouncement = true;
+
+            await _subjectService.UpdateAsync(id, updatedSubject);
+
+            return Ok("Add Anouncement Successful");
+        }
+        else{
+            return Ok("This is Anouncement");
+        }
+        
+    }
+
+    [HttpPut("deleteanouncement/{id:length(24)}")]
+    public async Task<IActionResult> DeleteAnouncement(string id, Subject updatedSubject)
+    {
+        var subject = await _subjectService.GetAsync(id);
+
+        if (subject is null)
+        {
+            return NotFound();
+        }
+
+        if(subject.IsAnouncement != false){
+
+            updatedSubject.Id = subject.Id;
+            updatedSubject.User_ID = subject.User_ID;
+            updatedSubject.Username = subject.Username;
+            updatedSubject.Title = subject.Title;
+            updatedSubject.Desc = subject.Desc;
+            updatedSubject.CountLikes = subject.CountLikes;
+            updatedSubject.IsHide = subject.IsHide;
+            updatedSubject.Created_At = subject.Created_At;
+            updatedSubject.CountLikes = subject.CountLikes;
+            updatedSubject.IsAnouncement = false;
+
+            await _subjectService.UpdateAsync(id, updatedSubject);
+
+            return Ok("Delete Anouncement Successful");
+        }
+        else{
+            return Ok("This is not Anouncement");
+        }
+        
     }
 
     [HttpPut("hide/{id:length(24)}")]
@@ -92,7 +163,11 @@ public class SubjectController : ControllerBase
             updatedSubject.Username = subject.Username;
             updatedSubject.Title = subject.Title;
             updatedSubject.Desc = subject.Desc;
+            updatedSubject.CountLikes = subject.CountLikes;
             updatedSubject.IsHide = true;
+            updatedSubject.Created_At = subject.Created_At;
+            updatedSubject.CountLikes = subject.CountLikes;
+            updatedSubject.IsAnouncement = subject.IsAnouncement;
 
             await _subjectService.UpdateAsync(id, updatedSubject);
 
@@ -120,7 +195,11 @@ public class SubjectController : ControllerBase
             updatedSubject.Username = subject.Username;
             updatedSubject.Title = subject.Title;
             updatedSubject.Desc = subject.Desc;
+            updatedSubject.CountLikes = subject.CountLikes;
             updatedSubject.IsHide = false;
+            updatedSubject.Created_At = subject.Created_At;
+            updatedSubject.CountLikes = subject.CountLikes;
+            updatedSubject.IsAnouncement = subject.IsAnouncement;
 
             await _subjectService.UpdateAsync(id, updatedSubject);
 
@@ -146,11 +225,15 @@ public class SubjectController : ControllerBase
         if(user.IsBan != true && subject.CountLikes.Contains(iduser) == false){
 
             updatedSubject.Id = subject.Id;
-            updatedSubject.Username = subject.Username;
             updatedSubject.User_ID = subject.User_ID;
+            updatedSubject.Username = subject.Username;
             updatedSubject.Title = subject.Title;
             updatedSubject.Desc = subject.Desc;
             updatedSubject.CountLikes = subject.CountLikes;
+            updatedSubject.IsHide = subject.IsHide;
+            updatedSubject.Created_At = subject.Created_At;
+            updatedSubject.CountLikes = subject.CountLikes;
+            updatedSubject.IsAnouncement = subject.IsAnouncement;
             updatedSubject.CountLikes.Add(iduser);
             
             await _subjectService.UpdateAsync(id, updatedSubject);
@@ -160,11 +243,15 @@ public class SubjectController : ControllerBase
         else if(user.IsBan != true && subject.CountLikes.Contains(iduser)){
 
             updatedSubject.Id = subject.Id;
-            updatedSubject.Username = subject.Username;
             updatedSubject.User_ID = subject.User_ID;
+            updatedSubject.Username = subject.Username;
             updatedSubject.Title = subject.Title;
             updatedSubject.Desc = subject.Desc;
             updatedSubject.CountLikes = subject.CountLikes;
+            updatedSubject.IsHide = subject.IsHide;
+            updatedSubject.Created_At = subject.Created_At;
+            updatedSubject.CountLikes = subject.CountLikes;
+            updatedSubject.IsAnouncement = subject.IsAnouncement;
             updatedSubject.CountLikes.Remove(iduser);
             
             await _subjectService.UpdateAsync(id, updatedSubject);
@@ -190,11 +277,15 @@ public class SubjectController : ControllerBase
         }
 
         updatedSubject.Id = subject.Id;
-        updatedSubject.Username = subject.Username;
         updatedSubject.User_ID = subject.User_ID;
+        updatedSubject.Username = subject.Username;
         updatedSubject.Title = subject.Title;
         updatedSubject.Desc = subject.Desc;
         updatedSubject.CountLikes = subject.CountLikes;
+        updatedSubject.IsHide = subject.IsHide;
+        updatedSubject.Created_At = subject.Created_At;
+        updatedSubject.CountLikes = subject.CountLikes;
+        updatedSubject.IsAnouncement = subject.IsAnouncement;
 
         await _subjectService.UpdateAsync(id, updatedSubject);
 

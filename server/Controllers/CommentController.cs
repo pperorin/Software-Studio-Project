@@ -68,6 +68,10 @@ public class CommentController : ControllerBase
         updatedComment.User_ID = comment.User_ID;
         updatedComment.Username = comment.Username;
         updatedComment.Subject_ID = comment.Subject_ID;
+        updatedComment.IsHide = comment.IsHide;
+        updatedComment.Created_At = comment.Created_At;
+        updatedComment.CountLikes = comment.CountLikes;
+
 
         await _commentService.UpdateAsync(id, updatedComment);
 
@@ -92,6 +96,9 @@ public class CommentController : ControllerBase
             updatedComment.Subject_ID = comment.Subject_ID;
             updatedComment.Desc = comment.Desc;
             updatedComment.IsHide = true;
+            updatedComment.Created_At = comment.Created_At;
+            updatedComment.Updated_At = comment.Updated_At;
+            updatedComment.CountLikes = comment.CountLikes;
 
             await _commentService.UpdateAsync(id, updatedComment);
 
@@ -120,6 +127,9 @@ public class CommentController : ControllerBase
             updatedComment.Subject_ID = comment.Subject_ID;
             updatedComment.Desc = comment.Desc;
             updatedComment.IsHide = false;
+            updatedComment.Created_At = comment.Created_At;
+            updatedComment.Updated_At = comment.Updated_At;
+            updatedComment.CountLikes = comment.CountLikes;
 
             await _commentService.UpdateAsync(id, updatedComment);
 
@@ -146,10 +156,13 @@ public class CommentController : ControllerBase
         if(user.IsBan != true && comment.CountLikes.Contains(iduser) == false){
 
             updatedComment.Id = comment.Id;
-            updatedComment.Username = comment.Username;
             updatedComment.User_ID = comment.User_ID;
+            updatedComment.Username = comment.Username;
             updatedComment.Subject_ID = comment.Subject_ID;
             updatedComment.Desc = comment.Desc;
+            updatedComment.IsHide = comment.IsHide;
+            updatedComment.Created_At = comment.Created_At;
+            updatedComment.Updated_At = comment.Updated_At;
             updatedComment.CountLikes = comment.CountLikes;
             updatedComment.CountLikes.Add(iduser);
             
@@ -160,10 +173,13 @@ public class CommentController : ControllerBase
         else if(user.IsBan != true && comment.CountLikes.Contains(iduser)){
 
             updatedComment.Id = comment.Id;
-            updatedComment.Username = comment.Username;
             updatedComment.User_ID = comment.User_ID;
+            updatedComment.Username = comment.Username;
             updatedComment.Subject_ID = comment.Subject_ID;
             updatedComment.Desc = comment.Desc;
+            updatedComment.IsHide = comment.IsHide;
+            updatedComment.Created_At = comment.Created_At;
+            updatedComment.Updated_At = comment.Updated_At;
             updatedComment.CountLikes = comment.CountLikes;
             updatedComment.CountLikes.Remove(iduser);
             
@@ -191,10 +207,13 @@ public class CommentController : ControllerBase
         }
 
         updatedComment.Id = comment.Id;
-        updatedComment.Username = comment.Username;
         updatedComment.User_ID = comment.User_ID;
+        updatedComment.Username = comment.Username;
         updatedComment.Subject_ID = comment.Subject_ID;
         updatedComment.Desc = comment.Desc;
+        updatedComment.IsHide = comment.IsHide;
+        updatedComment.Created_At = comment.Created_At;
+        updatedComment.Updated_At = comment.Updated_At;
         updatedComment.CountLikes = comment.CountLikes;
 
         await _commentService.UpdateAsync(id, updatedComment);
