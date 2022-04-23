@@ -4,7 +4,7 @@ const MembersPage = () => {
             <h2 className="mb-4">Member List</h2>
             <ul className="list-group">
                 <li className="list-group-item d-flex">
-                    <p className="p-0 m-2 flex-grow-1">ชื่อ นามสกุล</p>
+                    <p className="p-0 m-2 flex-grow-1 " style={{textAlign: 'left'}}>ชื่อ นามสกุล</p>
                     <button className="btn-warning m-2">BAN</button> <button className="btn-danger m-2">DELETE</button>
                 </li>
             </ul>
