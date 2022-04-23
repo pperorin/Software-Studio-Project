@@ -1,3 +1,4 @@
 export { default as HomePage } from './HomePage/HomePage';
 export {default as ProfilePage} from './ProfilePage/ProfilePage';
 export {default as SubjectPage} from './SubjectPage/SubjectPage';
+export { default as AdminPage } from './AdminPage/AdminPage';
