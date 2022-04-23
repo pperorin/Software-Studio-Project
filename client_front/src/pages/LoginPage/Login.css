@@ -1,0 +1,17 @@
+.btn-primary{
+    color: #fff;
+    background-color: #FF9700 !important;
+    border-color: #FF9700 !important;
+    width: 413px;
+}
+
+.btn-login-register{
+    color: #FF9700;
+}
+
+.icon-img{
+    width: 100px;
+    height: 100px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
