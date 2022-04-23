@@ -13,11 +13,24 @@ code {
     margin: 3% 10%;
 }
 
+#root {
+    text-align: center;
+}
+
 
 /* Navbar */
 
 nav {
     height: 75px;
+}
+
+footer {
+    position: flex;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    /* Height of the footer */
+    background: #6cf;
 }
 
 .userIcon {
@@ -50,4 +63,20 @@ nav {
     border: 1px solid #ced4da;
     appearance: none;
     border-radius: .25rem;
+}
+
+.card-body {
+    text-align: left;
+}
+
+.col-sm-4 {
+    margin: 20px 0;
+}
+
+form {
+    text-align: left;
+}
+
+.addsubject-form {
+    margin: 2% 0;
 }

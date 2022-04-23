@@ -1,5 +1,5 @@
 import { PageLayout } from '../../components';
-import Password from './Components/Password';
+import Password from './components/Password';
 
 const ProfilePage = () => {
     return (
