@@ -14,6 +14,18 @@ code {
 }
 
 
+/* Navbar */
+
+nav {
+    height: 75px;
+}
+
+.userIcon {
+    width: 100%;
+    height: 50px;
+}
+
+
 /* Profile Page */
 
 .profileImg {
@@ -25,7 +37,7 @@ code {
     border-bottom-left-radius: 50% 50%
 }
 
-.test {
+.username {
     display: block;
     width: 100%;
     padding: .375rem .75rem;
