@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
     return (
-        <div className="sidebar">
+        <div className="sidebar min-vh-100">
             <div className="sidebar__header">
                 <div className="sidebar__header-title m-3">
                     <h1>Admin</h1>
