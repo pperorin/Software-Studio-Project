@@ -44,7 +44,7 @@ const LoginPage = () => {
                             <img className='w-150' src={UiImg} alt="" />
                         </Col>
                         <Col lg={4} md={6} sm={12} className='text-center'>
-                            <img className='icon-img' src={MonkImg} />
+                            <img className='icon-img' src={MonkImg} alt='' />
                             <Form className='Login-form' onSubmit={handleSubmit}>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
                                     <Form.Control type="email" placeholder="Username" onChange={(e) => setLogInUserName(e.target.value)} />
