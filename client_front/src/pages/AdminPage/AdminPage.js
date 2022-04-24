@@ -4,7 +4,7 @@ import { PageLayout } from '../../components';
 
 import Sidebar from './components/Sidebar';
 import MembersPage from './components/MembersPage';
-import ThreadPage from './components/ThreadPage';
+import SubjectPage from './components/SubjectPage';
 import AnnouncementPage from './components/AnnouncementPage';
 
 const AdminPage = () => {
@@ -19,7 +19,7 @@ const AdminPage = () => {
                         <Routes>
                             <Route>
                                 <Route path="/members" element={<MembersPage />} />
-                                <Route path="/thread" element={<ThreadPage />} />
+                                <Route path="/subject" element={<SubjectPage />} />
                                 <Route path="/announcement" element={<AnnouncementPage />} />
                             </Route>
                         </Routes>
