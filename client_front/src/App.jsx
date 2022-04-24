@@ -6,6 +6,7 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 
 import { useDispatch } from 'react-redux';
 import { userLogout } from './state/auth';
+import AnnouncementPage from './pages/AdminPage/components/AnnouncementPage';
 
 const Logout = () => {
     const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="subject" element={<SubjectPage />} />
             <Route path="/profile" element={<ProfilePage />} />
-
+            
             <Route path="/login" element={<LoginPage />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/register" element={<RegisterPage />} />
