@@ -5,13 +5,15 @@ import { useSelector } from 'react-redux';
 import { PageLayout,SubjectCard } from '../../components';
 import AddSubject from './components/AddSubject';
 import SubjectList from './components/SubjectList';
+import SubjectDetail from './components/SubjectDetail';
 
 
 const SubjectPage = () => {
 
     return (
         <PageLayout>
-            <SubjectList/>
+            {/* <SubjectList/> */}
+            <SubjectDetail/>
         </PageLayout >
     );
 };

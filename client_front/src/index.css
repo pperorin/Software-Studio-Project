@@ -80,3 +80,9 @@ form {
 .addsubject-form {
     margin: 2% 0;
 }
+
+.create-time {
+    text-align: left;
+    font-size: 10;
+    color: gray;
+}
