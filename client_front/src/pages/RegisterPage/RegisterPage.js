@@ -27,7 +27,7 @@ const RegisterPage = () => {
     const validateForm = async (e) => {
         e.preventDefault();
         if (userName.length > 8) {
-            setErrorUserName('');
+            setErrorUserName(null);
             setUserNameColor('green');
         } else {
             setErrorUserName('Enter a username of more than 8 characters.');
@@ -35,22 +35,26 @@ const RegisterPage = () => {
         }
 
         if (password.length > 8) {
-            setErrorPassword('');
+            setErrorPassword(null);
             setPasswordColor('green');
         } else {
             setErrorPassword('Enter a password of more than 8 characters.');
             setPasswordColor('red');
         }
 
-        if (repassword !== '' && repassword === password) {
-            setErrorRePassword('');
+        if (repassword !== null && repassword === password) {
+            setErrorRePassword(null);
             setRepasswordColor('green');
         } else {
             setErrorRePassword('Passwords do not match');
             setRepasswordColor('red');
+
         }
 
-        const response = await axios.post('https://localhost:7061/api/users/', {
+        if(errorPassword === null &&  errorUserName === null && errorRePassword === null ){
+            console.log(errorPassword,errorUserName,errorRePassword)
+
+            const response = await axios.post('https://localhost:7061/api/users/', {
             username: userName,
             password,
         });
@@ -62,7 +66,10 @@ const RegisterPage = () => {
         else {
             alert('Something went wrong');
         }
+
+        }
     };
+        
 
     return (
         <PageLayout>

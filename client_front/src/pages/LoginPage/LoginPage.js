@@ -1,6 +1,6 @@
 import { PageLayout } from '../../components';
 import React, { useState, useEffect } from 'react';
-import { Col, Container, Row, Form, Button, Alert } from 'react-bootstrap';
+import { Col, Container, Row, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +14,14 @@ import MonkImg from './MonkItem.svg';
 const LoginPage = () => {
     const [LogInUsername, setLogInUserName] = useState();
     const [LogInPassword, setLogInPassword] = useState();
+
+    const [errorLoginUserName, setErrorLoginUserName] = useState('');
+    const [errorLoginPassword, setErrorLoginPassword] = useState('');
+
+    const [LoginuserNameColor, setLoginUserNameColor] = useState('');
+    const [LoginpasswordColor, setLoginPasswordColor] = useState('');
+
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const user = useSelector((state) => state.auth);
@@ -27,17 +35,38 @@ const LoginPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await axios.post('https://localhost:7061/api/users/login', {
-            username: LogInUsername,
-            password: LogInPassword,
-        });
-
-        if (response.data.username) {
-            dispatch(userLogin(response.data));
-            navigate('/');
+        if (LogInUsername.length > 8) {
+            setErrorLoginUserName(null);
+            setLoginUserNameColor('green');
         } else {
-            alert('Invalid username or password');
+            setErrorLoginUserName('Enter a username of more than 8 characters.');
+            setLoginUserNameColor('red');
         }
+
+        if (LogInPassword.length > 8) {
+            setErrorLoginPassword(null);
+            setLoginPasswordColor('green');
+        } else {
+            setErrorLoginPassword('Enter a password of more than 8 characters.');
+            setLoginPasswordColor('red');
+        }
+
+        
+        if (errorLoginUserName === null && errorLoginPassword === null) {
+            const response = await axios.post('https://localhost:7061/api/users/login', {
+                username: LogInUsername,
+                password: LogInPassword,
+            });
+
+            if (response.data.username) {
+                dispatch(userLogin(response.data));
+                navigate('/');
+            } else {
+                alert('Invalid username or password');
+            }
+        }
+
+
     };
     return (
         <PageLayout>
@@ -53,16 +82,16 @@ const LoginPage = () => {
                                 <Form.Control
                                     type="username"
                                     placeholder="Username"
-                                    onChange={(e) => setLogInUserName(e.target.value)}
-                                />
+                                    onChange={(e) => setLogInUserName(e.target.value)} style={{ borderColor: LoginuserNameColor }}
+                                /><small style={{ color: LoginuserNameColor }}>{errorLoginUserName}</small>
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Control
                                     type="password"
                                     placeholder="Password"
-                                    onChange={(e) => setLogInPassword(e.target.value)}
-                                />
+                                    onChange={(e) => setLogInPassword(e.target.value)} style={{ borderColor: LoginpasswordColor }}
+                                /><small style={{ color: LoginpasswordColor }}>{errorLoginPassword}</small>
                             </Form.Group>
 
                             <Button className="Login-button" type="submit">

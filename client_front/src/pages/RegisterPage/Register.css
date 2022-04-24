@@ -1,50 +1,53 @@
-*{
+* {
     box-sizing: border-box;
 }
-.full-container{
+
+.full-container {
     width: 100%;
-    
+
 }
 
-.register-container{
+.register-container {
     border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     width: 500px;
     margin: 150px;
-    
+
 }
 
-.form{
+.form {
     padding: 10px 40px;
     position: relative;
     margin-bottom: 10px;
     padding-bottom: 20px;
-    
+
 }
-h2{
+
+h2 {
     text-align: center;
     margin: 0 0 0 20px;
 }
 
-.form label{
+.form label {
     display: block;
     margin-bottom: 5px;
 }
-.form input{
+
+.form input {
     display: block;
     border: 2px solid #f0f0f0;
     border-radius: 17px;
     width: 100%;
     padding: 10px;
     font-size: 14px;
-    
+
 }
 
-.form input:focus{
+.form input:focus {
     outline: none;
 }
 
-.form button{
+.form button {
     background: #FF9700;
     cursor: pointer;
     color: #fff;
