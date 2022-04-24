@@ -10,9 +10,9 @@ const Sidebar = () => {
             </div>
             <div className="sidebar__content">
                 <div className="sidebar__content-item m-2">
-                    <Link to="/admin/thread">
+                    <Link to="/admin/subject">
                         <i className="fas fa-newspaper"></i>
-                        <span> Thread</span>
+                        <span> Subject</span>
                     </Link>
                 </div>
                 <div className="sidebar__content-item m-2">
