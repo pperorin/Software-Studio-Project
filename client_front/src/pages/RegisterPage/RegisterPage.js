@@ -2,6 +2,17 @@ import './Register.css'
 import { useState } from "react"
 import { PageLayout } from '../../components';
 
+async function loginUser(credentials) {
+    return fetch('https://www.mecallapi.com/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(credentials)
+    })
+        .then(data => data.json())
+}
+
 const RegisterPage = () => {
 
     const [userName, setUserName] = useState('')
@@ -16,13 +27,14 @@ const RegisterPage = () => {
     const [passwordColor, setPasswordColor] = useState('')
     const [repasswordColor, setRepasswordColor] = useState('')
 
-    const validateForm = (e) => {
+    
+    const validateForm = async e => {
         e.preventDefault()
         if (userName.length > 8) {
             setErrorUserName('')
             setUserNameColor('green')
         } else {
-            setErrorUserName('ป้อนชื่อผู้ใช้จำนวนมากกว่า 8 ตัวอักษร')
+            setErrorUserName('Enter a username of more than 8 characters.')
             setUserNameColor('red')
         }
 
@@ -30,7 +42,7 @@ const RegisterPage = () => {
             setErrorPassword('')
             setPasswordColor('green')
         } else {
-            setErrorPassword('ป้อนรหัสผ่านมากกว่า 8 ตัวอักษร')
+            setErrorPassword('Enter a password of more than 8 characters.')
             setPasswordColor('red')
         }
 
@@ -38,19 +50,27 @@ const RegisterPage = () => {
             setErrorRePassword('')
             setRepasswordColor('green')
         } else {
-            setErrorRePassword('รหัสผ่านไม่ตรงกัน')
+            setErrorRePassword('Passwords do not match')
             setRepasswordColor('red')
         }
+        const response = await loginUser({
+            userName,
+            password,
+            repassword
+        });
+        console.log(response)
+        console.log(userName)
+        console.log(password)
+        console.log(repassword)
     }
 
     return (
         <PageLayout>
-            <div >
-                <div className="register-container">
-                    <form className="form" onSubmit={validateForm}>
+            <div className=' justify-content-center align-self-center d-flex '>
+                <div className="register-container ">
+                    <form className="form" onSubmit={validateForm} >
                         <h2>Register</h2>
-
-                        <label>UserName</label>
+                        <label>Username</label>
                         <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} style={{ borderColor: userNameColor }} />
                         <small style={{ color: userNameColor }}>{errorUserName}</small>
 
