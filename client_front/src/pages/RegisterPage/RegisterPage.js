@@ -1,16 +1,12 @@
 import './Register.css';
 import { useState } from 'react';
-import { PageLayout } from '../../components';
 
-async function loginUser(credentials) {
-    return fetch('https://www.mecallapi.com/api/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(credentials),
-    }).then((data) => data.json());
-}
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { userLogin } from '../../state/auth';
+
+import { PageLayout } from '../../components';
 
 const RegisterPage = () => {
     const [userName, setUserName] = useState('');
@@ -24,6 +20,9 @@ const RegisterPage = () => {
     const [userNameColor, setUserNameColor] = useState('');
     const [passwordColor, setPasswordColor] = useState('');
     const [repasswordColor, setRepasswordColor] = useState('');
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const validateForm = async (e) => {
         e.preventDefault();
@@ -50,15 +49,19 @@ const RegisterPage = () => {
             setErrorRePassword('Passwords do not match');
             setRepasswordColor('red');
         }
-        const response = await loginUser({
-            userName,
+
+        const response = await axios.post('https://localhost:7061/api/users/', {
+            username: userName,
             password,
-            repassword,
         });
-        console.log(response);
-        console.log(userName);
-        console.log(password);
-        console.log(repassword);
+
+        if (response.data.username) {
+            dispatch(userLogin(response.data));
+            navigate('/');
+        }
+        else {
+            alert('Something went wrong');
+        }
     };
 
     return (

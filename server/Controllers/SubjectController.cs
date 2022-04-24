@@ -273,7 +273,7 @@ public class SubjectController : ControllerBase
         }
     }
 
-    [HttpPut("countlike/{id:length(24)}")]
+    [HttpGet("countlike/{id:length(24)}")]
     public async Task<int> CountLike(string id, Subject updatedSubject)
     {
         var subject = await _subjectService.GetAsync(id);
