@@ -55,9 +55,12 @@ const RegisterPage = () => {
             password,
         });
 
-        if ('id' in response.data) {
+        if (response.data.username) {
             dispatch(userLogin(response.data));
             navigate('/');
+        }
+        else {
+            alert('Something went wrong');
         }
     };
 

@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux';
 
 const NavigationBar = () => {
-  const user = useSelector((state) => state.auth);
-  console.log(user)
+    const user = useSelector((state) => state.auth);
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -60,7 +59,7 @@ const NavigationBar = () => {
                         </li>
                     </ul>
 
-                    {user ? (
+                    {user.user !== null ? (
                         <a className="justify-content-end" href="/profile">
                             <img
                                 src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
@@ -69,11 +68,10 @@ const NavigationBar = () => {
                             />
                         </a>
                     ) : (
-                        <a className="justify-content-end" href="/login">
+                        <a className="nav-link justify-content-end" href="/login">
                             Login
                         </a>
                     )}
- 
                 </div>
             </div>
         </nav>

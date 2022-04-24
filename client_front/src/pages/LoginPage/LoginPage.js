@@ -1,45 +1,42 @@
 import { PageLayout } from '../../components';
-import React, { useState } from 'react';
-import { Col, Container, Row, Form, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Col, Container, Row, Form, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
 
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { userLogin } from '../../state/auth';
 
 import './Login.css';
 import UiImg from './uiitem.svg';
 import MonkImg from './MonkItem.svg';
 
-async function loginUser(credentials) {
-    return fetch('https://www.mecallapi.com/api/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(credentials),
-    }).then((data) => data.json());
-}
-
 const LoginPage = () => {
     const [LogInUsername, setLogInUserName] = useState();
     const [LogInPassword, setLogInPassword] = useState();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const user = useSelector((state) => state.auth);
+
+    useEffect(() => {
+        if (user.user) {
+            navigate('/');
+        }
+    }, [navigate, user.user]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const response = await axios.post('https://localhost:7061/api/users/login', {
-            username:LogInUsername,
-            password:LogInPassword,
+            username: LogInUsername,
+            password: LogInPassword,
         });
 
-        console.log(response.data);
-
-        if ('id' in response.data) {
+        if (response.data.username) {
             dispatch(userLogin(response.data));
             navigate('/');
+        } else {
+            alert('Invalid username or password');
         }
     };
     return (
