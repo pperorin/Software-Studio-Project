@@ -128,7 +128,7 @@ public class UsersController : ControllerBase
         
     }
 
-    [HttpPut("checkadmin/{id:length(24)}")]
+    [HttpGet("checkadmin/{id:length(24)}")]
     public async Task<Boolean> CheckAdmin(string id, User updatedUser)
     {
         var user = await _usersService.GetAsync(id);
@@ -140,6 +140,34 @@ public class UsersController : ControllerBase
         else{
             return false;
         }    
+    }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login(User getuser)
+    {
+        var user = await _usersService.GetAsync();
+        var find = 0;
+        var id = "";
+
+        foreach(var s in user){
+            if(s.Username == getuser.Username){
+                id = s.Id;
+                find = 1;
+                if(s.Password == getuser.Password){
+                    var users = await _usersService.GetAsync(s.Id);
+                    return CreatedAtAction(nameof(Get), users);
+                }
+                break;
+            }
+        }
+        
+        if(find == 0){
+            return Ok("Don't have user");
+        }
+        else{
+            return Ok("Password wrong");
+        }
+
     }
 
     [HttpPut("editPassword/{id:length(24)}")]

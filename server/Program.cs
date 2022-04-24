@@ -58,6 +58,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseCors(builder => builder.WithOrigins("*")
+                               .AllowAnyMethod()
+                               .AllowAnyHeader());
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
