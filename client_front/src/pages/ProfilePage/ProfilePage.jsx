@@ -1,7 +1,11 @@
+import { useSelector } from 'react-redux';
+
 import { PageLayout } from '../../components';
 import Password from './components/Password';
 
 const ProfilePage = () => {
+    const user = useSelector((state) => state.auth);
+
     return (
         <PageLayout>
             <div className='center container'>
@@ -11,7 +15,7 @@ const ProfilePage = () => {
                     </div>
                     <div className="col-10">
                         <label htmlFor="">Username </label>
-                        <input type="text" className='username' disabled placeholder="เซนเองครับ"/>
+                        <input type="text" className='username' disabled placeholder={user.user.username}/>
                         <Password />
                     </div>
                 </div>
