@@ -19,7 +19,7 @@ const NavigationBar = () => {
               <a className="nav-link" href="/">Announcement</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">Pricing</a>
+              <a className="nav-link" href="/subject">Subject</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/">About</a>
@@ -28,7 +28,7 @@ const NavigationBar = () => {
               <a className="nav-link" href="/admin">Admin</a>
             </li>
           </ul>
-          <a className="justify-content-end" href="/"><img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="profile" className="userIcon" /></a>
+          <a className="justify-content-end" href="/profile"><img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="profile" className="userIcon" /></a>
           
         </div>
       </div>

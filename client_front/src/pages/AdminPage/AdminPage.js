@@ -15,7 +15,7 @@ const AdminPage = () => {
                     <Sidebar />
                 </div>
                 <div className="col-9 border">
-                    <div className="container mt-5">
+                    <div className="mt-5">
                         <Routes>
                             <Route>
                                 <Route path="/members" element={<MembersPage />} />
