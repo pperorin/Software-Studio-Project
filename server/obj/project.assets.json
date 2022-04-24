@@ -624,19 +624,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Zen\\.nuget\\packages\\": {}
+    "C:\\Users\\Tan_c\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CE\\3D\\Sem2\\Software Studio\\Software-Studio-Project\\server\\server.csproj",
+      "projectUniqueName": "C:\\Users\\Tan_c\\Desktop\\Software-Studio-Project\\server\\server.csproj",
       "projectName": "server",
-      "projectPath": "D:\\CE\\3D\\Sem2\\Software Studio\\Software-Studio-Project\\server\\server.csproj",
-      "packagesPath": "C:\\Users\\Zen\\.nuget\\packages\\",
-      "outputPath": "D:\\CE\\3D\\Sem2\\Software Studio\\Software-Studio-Project\\server\\obj\\",
+      "projectPath": "C:\\Users\\Tan_c\\Desktop\\Software-Studio-Project\\server\\server.csproj",
+      "packagesPath": "C:\\Users\\Tan_c\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Tan_c\\Desktop\\Software-Studio-Project\\server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Zen\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Tan_c\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
