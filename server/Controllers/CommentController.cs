@@ -195,7 +195,7 @@ public class CommentController : ControllerBase
         }
     }
 
-    [HttpPut("countlike/{id:length(24)}")]
+    [HttpGet("countlike/{id:length(24)}")]
     public async Task<int> CountLike(string id, Comment updatedComment)
     {
         var comment = await _commentService.GetAsync(id);
