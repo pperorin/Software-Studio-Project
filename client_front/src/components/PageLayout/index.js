@@ -6,7 +6,7 @@ const PageLayout = (props) => {
     return (
         <>
             <NavigationBar />
-            <main className="flex-grow mb-8 min-vh-100">{children}</main>
+            <main className="flex-grow w-100 mb-8 vh-100 align-items-center d-flex justify-content-center">{children}</main>
             <Footer />
         </>
     );

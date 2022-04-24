@@ -1,15 +1,17 @@
 *{
     box-sizing: border-box;
 }
-
-
+.full-container{
+    width: 100%;
+    
+}
 
 .register-container{
     
-    background: #fff;
     border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     width: 500px;
+    
     
     
 }
@@ -32,10 +34,11 @@ h2{
 .form input{
     display: block;
     border: 2px solid #f0f0f0;
-    border-radius: 4px;
+    border-radius: 17px;
     width: 100%;
     padding: 10px;
     font-size: 14px;
+    
 }
 
 .form input:focus{
@@ -43,13 +46,14 @@ h2{
 }
 
 .form button{
-    background: #3498db;
+    background: #FF9700;
     cursor: pointer;
     color: #fff;
     width: 100%;
     margin-top: 20px;
-    border: 2px solid #3498db;
+    border: 2px solid #FF9700;
     display: block;
     padding: 10px;
     font-size: 16px;
+    border-radius: 17px;
 }
