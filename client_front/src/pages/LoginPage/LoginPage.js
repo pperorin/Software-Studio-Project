@@ -1,25 +1,25 @@
 import { PageLayout } from '../../components';
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { Col, Container, Row, Form, Button } from 'react-bootstrap';
 import './Login.css'
 import UiImg from './uiitem.svg'
 import MonkImg from './MonkItem.svg'
 
-async function loginUser(credentials){
-    return fetch('https://www.mecallapi.com/api/login',{
-        method:'POST',
-        headers:{
-            'Content-Type' : 'application/json'
+async function loginUser(credentials) {
+    return fetch('https://www.mecallapi.com/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(credentials)
     })
-    .then(data => data.json())
+        .then(data => data.json())
 }
 
 
 const LoginPage = () => {
-    const [LogInUsername,setLogInUserName] = useState();
-    const [LogInPassword,setLogInPassword] = useState();
+    const [LogInUsername, setLogInUserName] = useState();
+    const [LogInPassword, setLogInPassword] = useState();
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -30,8 +30,8 @@ const LoginPage = () => {
         console.log(response)
         console.log(LogInUsername)
         console.log(LogInPassword)
-        if('accessToken' in response){
-            localStorage.setItem('accessToken',response.accessToken)
+        if ('accessToken' in response) {
+            localStorage.setItem('accessToken', response.accessToken)
             window.location.href = "/profile";
         }
     }
@@ -47,7 +47,7 @@ const LoginPage = () => {
                             <img className='icon-img' src={MonkImg} alt='' />
                             <Form className='Login-form' onSubmit={handleSubmit}>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                                    <Form.Control type="email" placeholder="Username" onChange={(e) => setLogInUserName(e.target.value)} />
+                                    <Form.Control type="username" placeholder="Username" onChange={(e) => setLogInUserName(e.target.value)} />
                                 </Form.Group>
 
                                 <Form.Group className="mb-3" controlId="formBasicPassword">
