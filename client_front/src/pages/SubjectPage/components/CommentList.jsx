@@ -14,7 +14,7 @@ const CommentList = () => {
     useEffect(() => {
         const fetchAllComment = async () => {
             try {
-                const response = await axios.get(`https://localhost:7061/api/comment/${id}`);
+                const response = await axios.get(`https://localhost:7061/api/comment/getcommentsubject/${id}`);
                 console.log(response);
                 setallCommnets(response.data);
                 setIsLoading(false);
