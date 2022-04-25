@@ -24,7 +24,7 @@ public class UsersController : ControllerBase
 
         if (user is null)
         {
-            return NotFound();
+            return Ok("ไม่มีผู้ใช้งานเลย");
         }
 
         return user;
@@ -45,7 +45,7 @@ public class UsersController : ControllerBase
 
         if (user is null)
         {
-            return NotFound();
+            return Ok("ไม่มีผู้ใช้งานเลย");
         }
 
         updatedUser.Id = user.Id;
@@ -62,7 +62,7 @@ public class UsersController : ControllerBase
 
         if (user is null)
         {
-            return NotFound();
+            return Ok("ไม่มีผู้ใช้งานเลย");
         }
 
         if(user.IsAdmin != true){
@@ -98,7 +98,7 @@ public class UsersController : ControllerBase
 
         if (user is null)
         {
-            return NotFound();
+            return Ok("ไม่มีผู้ใช้งานเลย");
         }
 
         if(user.IsAdmin != true){
@@ -177,7 +177,7 @@ public class UsersController : ControllerBase
 
         if (user is null)
         {
-            return NotFound();
+            return Ok("ไม่มีผู้ใช้งานเลย");
         }
 
         if (editUser.Password == user.Password){
@@ -205,7 +205,7 @@ public class UsersController : ControllerBase
 
         if (user is null)
         {
-            return NotFound();
+            return Ok("ไม่มีผู้ใช้งานเลย");
         }
 
         await _usersService.RemoveAsync(id);

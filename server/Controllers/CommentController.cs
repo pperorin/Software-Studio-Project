@@ -17,7 +17,6 @@ public class CommentController : ControllerBase
         _commentService = commentService;
         _usersService = usersService;
     }
-        
 
     [HttpGet]
     public async Task<List<Comment>> Get() =>
@@ -34,6 +33,26 @@ public class CommentController : ControllerBase
         }
 
         return comment;
+    }
+
+    [HttpGet("getcommentsubject/{id:length(24)}")]
+    public async Task<ActionResult> GetCommentSubject(string id)
+    {
+        var comments = await _commentService.GetAsync();
+        List<Comment> Lscomment = new List<Comment>();
+
+        if (comments is null)
+        {
+            return Ok("ไม่มีคอมเม้นอยู่เลย");
+        }
+
+        foreach(var comment in comments){
+            if(comment.Subject_ID == id){
+                Lscomment.Add(comment);
+            }
+        }
+
+        return CreatedAtAction(nameof(Get),Lscomment);
     }
 
     [HttpPost]
@@ -61,7 +80,7 @@ public class CommentController : ControllerBase
 
         if (comment is null)
         {
-            return NotFound();
+            return Ok("ไม่มีคอมเม้นอยู่เลย");
         }
 
         updatedComment.Id = comment.Id;
@@ -85,7 +104,7 @@ public class CommentController : ControllerBase
 
         if (comment is null)
         {
-            return NotFound();
+            return Ok("ไม่มีคอมเม้นอยู่เลย");
         }
 
         if(comment.IsHide != true){
@@ -116,7 +135,7 @@ public class CommentController : ControllerBase
 
         if (comment is null)
         {
-            return NotFound();
+            return Ok("ไม่มีคอมเม้นอยู่เลย");
         }
 
         if(comment.IsHide != false){
@@ -150,7 +169,7 @@ public class CommentController : ControllerBase
 
         if (comment is null)
         {
-            return NotFound();
+            return Ok("ไม่มีคอมเม้นอยู่เลย");
         }
 
         if(user.IsBan != true && comment.CountLikes.Contains(iduser) == false){
@@ -217,7 +236,7 @@ public class CommentController : ControllerBase
 
         if (comment is null)
         {
-            return NotFound();
+            return Ok("ไม่มีคอมเม้นอยู่เลย");
         }
 
         await _commentService.RemoveAsync(id);

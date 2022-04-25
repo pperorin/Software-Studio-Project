@@ -29,7 +29,7 @@ public class SubjectController : ControllerBase
 
         if (subject is null)
         {
-            return NotFound();
+            return Ok("ไม่มีโพสเลย");
         }
 
         return subject;
@@ -63,7 +63,7 @@ public class SubjectController : ControllerBase
 
         if (subject is null)
         {
-            return NotFound();
+            return Ok("ไม่มีโพสเลย");
         }
 
         updatedSubject.Id = subject.Id;
@@ -88,7 +88,7 @@ public class SubjectController : ControllerBase
 
         if (subject is null)
         {
-            return NotFound();
+            return Ok("ไม่มีโพสเลย");
         }
 
         if(subject.IsAnouncement != true){
@@ -122,7 +122,7 @@ public class SubjectController : ControllerBase
 
         if (subject is null)
         {
-            return NotFound();
+            return Ok("ไม่มีโพสเลย");
         }
 
         if(subject.IsAnouncement != false){
@@ -156,7 +156,7 @@ public class SubjectController : ControllerBase
 
         if (subject is null)
         {
-            return NotFound();
+            return Ok("ไม่มีโพสเลย");
         }
 
         if(subject.IsHide != true){
@@ -189,7 +189,7 @@ public class SubjectController : ControllerBase
 
         if (subject is null)
         {
-            return NotFound();
+            return Ok("ไม่มีโพสเลย");
         }
 
         if(subject.IsHide != false){
@@ -224,7 +224,7 @@ public class SubjectController : ControllerBase
 
         if (subject is null)
         {
-            return NotFound();
+            return Ok("ไม่มีโพสเลย");
         }
 
         if(user.IsBan != true && subject.CountLikes.Contains(iduser) == false){
@@ -294,7 +294,7 @@ public class SubjectController : ControllerBase
 
         if (subject is null)
         {
-            return NotFound();
+            return Ok("ไม่มีโพสเลย");
         }
 
         await _subjectService.RemoveAsync(id);
