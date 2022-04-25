@@ -85,7 +85,7 @@ const SubjectList = () => {
     return (
         <div className='container'>
             <h1 style={{ margin: "30px 0" }}>All Subjects</h1>
-            <div class="row">
+            <div className="row">
                 {allSubjects.map((subject) =>
                     <SubjectCard data={subject} />
                 )}

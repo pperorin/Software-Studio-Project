@@ -18,8 +18,8 @@ const SubjectPage = () => {
             <Routes>
                 < Route>
                     <Route path="/" element={<SubjectList/>}/>
-                    <Route path="/subjectDetail" element={<SubjectDetail />} />
-                    <Route path="/addSubject" element={<AddSubject />} />
+                    <Route path="/:id" element={<SubjectDetail/>} />
+                    <Route path="/addSubject" element={<AddSubject/>} />
                 </Route>
             </Routes>
         </PageLayout >

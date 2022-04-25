@@ -1,28 +1,35 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState,useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 import AddComment from './AddComment';
 import CommentList from './CommentList';
-const SubjectDetail = ({data}) => {
-    const datas={
-        "id": "6262959f487d7f639d6696c7",
-        "user_ID": "626161d0ab22607b298bc916",
-        "username": "mook",
-        "title": "ddddddddddddddddddddddddddd",
-        "desc": "คุคิ",
-        "isHide": false,
-        "created_At": "2022-04-22T11:46:39.95Z",
-        "updated_At": "0001-01-01T00:00:00Z",
-        "countLikes": [
-            "6261625eab22607b298bc917"
-        ],
-        "isAnouncement": false
-    }
+const SubjectDetail = () => {
+    const [subject, setSubjects] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const {id} = useParams();
+
+
+    useEffect(() => {
+        const fetchAllSubject = async () => {
+            try {
+                const response = await axios.get(`https://localhost:7061/api/subject/${id}`);
+                console.log(response);
+                setSubjects(response.data);
+                setIsLoading(false);
+            } catch (error) {
+                setError(error.message);
+                setIsLoading(false);
+            }
+        };
+        fetchAllSubject();
+    }, []);
     return <div className="container addsubject-form">
-        <h1 style={{textAlign:"left"}}>{datas.title}</h1>
-        <p className="create-time">{datas.created_At}</p>
+        <h1 style={{textAlign:"left"}}>{subject.title}</h1>
+        <p className="create-time">{subject.created_At}</p>
         <p style={{textAlign:'left'}}>
-            {datas.desc}
+            {subject.desc}
         </p>
         <AddComment/>
         <CommentList/>
