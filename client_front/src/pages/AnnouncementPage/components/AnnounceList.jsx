@@ -61,7 +61,7 @@ const AnnounceList = () => {
     ]
     return (
         <div className='container'>
-            <h1 style={{ margin: "30px 0" }}>All Announcements</h1>
+            {/* <h1 style={{ margin: "30px 0" }}>All Announcements</h1> */}
             <div class="row">
                 {datas.map((data) =>
                     <AnnounceCard data={data} />

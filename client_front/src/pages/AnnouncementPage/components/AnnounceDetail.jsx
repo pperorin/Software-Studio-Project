@@ -15,12 +15,12 @@ const AnnounceDetail = ({data}) => {
         "isAnouncement": false
     }
     return <div className="container addsubject-form">
-        <h1 style={{textAlign:"left"}}>{datas.title}</h1>
-        <p className="create-time">{datas.created_At}</p>
+        <h1 style={{textAlign:"center"}}>{datas.title}</h1>
+        {/* <p className="create-time">{datas.created_At}</p> */}
         <p style={{textAlign:'left'}}>
             {datas.desc}
         </p>
-        <AddAnnounce/>
+        {/* <AddAnnounce/> */}
         <AnnounceList/>
     </div>
 }

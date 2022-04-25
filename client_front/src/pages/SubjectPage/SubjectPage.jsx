@@ -1,19 +1,27 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-// import axios from 'axios';
 
-import { PageLayout,SubjectCard } from '../../components';
+import { Route, Routes } from 'react-router-dom';
+
+import { PageLayout, SubjectCard } from '../../components';
 import AddSubject from './components/AddSubject';
 import SubjectList from './components/SubjectList';
 import SubjectDetail from './components/SubjectDetail';
+import Slidebar from './components/Slidebar';
 
 
 const SubjectPage = () => {
 
     return (
         <PageLayout>
-            {/* <SubjectList/> */}
-            <SubjectDetail/>
+            <Slidebar/>
+            <Routes>
+                < Route>
+                    <Route path="/" element={<SubjectList/>}/>
+                    <Route path="/subjectDetail" element={<SubjectDetail />} />
+                    <Route path="/addSubject" element={<AddSubject />} />
+                </Route>
+            </Routes>
         </PageLayout >
     );
 };
