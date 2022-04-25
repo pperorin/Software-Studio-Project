@@ -34,7 +34,13 @@ public class UsersController : ControllerBase
     public async Task<IActionResult> Post(User newUser)
     {
         await _usersService.CreateAsync(newUser);
+        var users = await _usersService.GetAsync();
 
+        foreach(var i in users){
+            if(newUser.Username == i.Username){
+                return Ok("Duplicate");
+            }
+        }
         return CreatedAtAction(nameof(Get), new { id = newUser.Id }, newUser);
     }
 
