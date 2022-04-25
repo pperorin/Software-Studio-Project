@@ -28,11 +28,6 @@ const NavigationBar = () => {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/announcement">
-                                Announcement
-                            </a>
-                        </li>
-                        <li className="nav-item">
                             <a className="nav-link" href="/subject">
                                 Subject
                             </a>
@@ -45,11 +40,6 @@ const NavigationBar = () => {
                         <li className="nav-item">
                             <a className="nav-link" href="/admin">
                                 Admin
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/login">
-                                Login
                             </a>
                         </li>
                         <li className="nav-item">
