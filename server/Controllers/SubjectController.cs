@@ -287,6 +287,19 @@ public class SubjectController : ControllerBase
 
     }
 
+    [HttpGet("getuserlike/{id:length(24)}")]
+    public async Task<ActionResult> GetUserLike(string id)
+    {
+        var subject = await _subjectService.GetAsync(id);
+
+        if (subject is null)
+        {
+            return Ok("ไม่มีคอมเม้นอยู่เลย");
+        }
+
+        return CreatedAtAction(nameof(Get),subject.CountLikes);
+    }
+
     [HttpDelete("{id:length(24)}")]
     public async Task<IActionResult> Delete(string id)
     {

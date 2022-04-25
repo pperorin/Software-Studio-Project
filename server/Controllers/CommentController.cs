@@ -29,10 +29,23 @@ public class CommentController : ControllerBase
 
         if (comment is null)
         {
-            return NotFound();
+            return Ok("ไม่มีคอมเม้นอยู่เลย");
         }
 
         return comment;
+    }
+
+    [HttpGet("getuserlike/{id:length(24)}")]
+    public async Task<ActionResult> GetUserLike(string id)
+    {
+        var comments = await _commentService.GetAsync(id);
+
+        if (comments is null)
+        {
+            return Ok("ไม่มีคอมเม้นอยู่เลย");
+        }
+
+        return CreatedAtAction(nameof(Get),comments.CountLikes);
     }
 
     [HttpGet("getcommentsubject/{id:length(24)}")]
