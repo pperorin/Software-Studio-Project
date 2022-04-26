@@ -624,16 +624,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\Moondamon\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\Tan_c\\.nuget\\packages\\": {}
->>>>>>> ff1874a064d7fd7830cffb334738d2d0a15d2cbd
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "D:\\Mook Space\\งาน\\มหาลัย\\ปี3เทอม2\\softstudio\\Software-Studio-Project\\server\\server.csproj",
       "projectName": "server",
       "projectPath": "D:\\Mook Space\\งาน\\มหาลัย\\ปี3เทอม2\\softstudio\\Software-Studio-Project\\server\\server.csproj",
@@ -643,16 +638,6 @@
       "configFilePaths": [
         "C:\\Users\\Moondamon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-=======
-      "projectUniqueName": "C:\\Users\\Tan_c\\Desktop\\Software-Studio-Project\\server\\server.csproj",
-      "projectName": "server",
-      "projectPath": "C:\\Users\\Tan_c\\Desktop\\Software-Studio-Project\\server\\server.csproj",
-      "packagesPath": "C:\\Users\\Tan_c\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tan_c\\Desktop\\Software-Studio-Project\\server\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\Tan_c\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> ff1874a064d7fd7830cffb334738d2d0a15d2cbd
       ],
       "originalTargetFrameworks": [
         "net6.0"

@@ -1,6 +1,6 @@
 import { PageLayout } from '../../components';
 import Carousel from './components/Carousel';
-import AnnounceDetail from './components/AnnounceDetail';
+import AnnounceDetail from '../AnnouncementPage/components/AnnounceDetail';
 
 const HomePage = () => {
     return (

@@ -1,13 +1,13 @@
 import NavigationBar from './NavigationBar';
-import Footer from './Footer/Footer';
+import Footer from './Footer';
 
 const PageLayout = (props) => {
     const { children } = props;
     return (
         <>
             <NavigationBar />
-            <main className="w-100 mb-8">{children}</main>
-            <Footer/>
+            <main className="w-100 mb-8 vh-100">{children}</main>
+            <Footer />
         </>
     );
 };
