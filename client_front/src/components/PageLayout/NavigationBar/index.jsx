@@ -42,6 +42,11 @@ const NavigationBar = () => {
                                 History of Buddhism
                             </a>
                         </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/about">
+                                About Us
+                            </a>
+                        </li>
                         {/* <li className="nav-item">
                             <a className="nav-link" href="/">
                                 About
@@ -68,7 +73,7 @@ const NavigationBar = () => {
                             Register
                         </a>
                     ) : (
-                        <a></a>
+                        ''
                     )}
                     {user.user !== null ? (
                         <a className="justify-content-end" href="/profile">

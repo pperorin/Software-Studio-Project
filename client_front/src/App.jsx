@@ -1,6 +1,14 @@
 import { Navigate, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { HomePage, ProfilePage, SubjectPage, AdminPage, ReligiousDayPage, HistoryOfBuddhismPage } from './pages';
+import {
+    HomePage,
+    ProfilePage,
+    SubjectPage,
+    AdminPage,
+    ReligiousDayPage,
+    HistoryOfBuddhismPage,
+    AboutUsPage,
+} from './pages';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 
@@ -24,6 +32,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/about" element={<AboutUsPage />} />
             <Route path="/admin/*" element={<AdminPage />} />
         </Routes>
     );
