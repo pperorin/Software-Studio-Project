@@ -37,13 +37,15 @@ const NavigationBar = () => {
                                 About
                             </a>
                         </li> */}
-                        {user.user.isAdmin == true ? (
+                        {user.user?.isAdmin === true ? (
                             <li className="nav-item">
                                 <a className="nav-link" href="/admin">
                                     Admin
                                 </a>
                             </li>
-                        ):(<a/>)}
+                        ) : (
+                            ''
+                        )}
 
                         {/* <li className="nav-item">
                             <a className="nav-link" href="/register">
@@ -55,7 +57,8 @@ const NavigationBar = () => {
                         <a className="justify-content-end" href="/register">
                             Register
                         </a>
-                    ) : (<a></a>
+                    ) : (
+                        <a></a>
                     )}
                     {user.user !== null ? (
                         <a className="justify-content-end" href="/profile">
