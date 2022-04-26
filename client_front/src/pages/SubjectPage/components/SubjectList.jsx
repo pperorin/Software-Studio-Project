@@ -24,7 +24,15 @@ const SubjectList = () => {
     return (
         <div className="container">
             <h1 style={{ margin: '30px 0' }}>All Subjects</h1>
-            <div className="row">{!isLoading && allSubjects.map((subject, index) => <SubjectCard data={subject} key={index}/>)}</div>
+            <div className="row">
+                {!isLoading &&
+                    allSubjects.map((subject, index) => {
+                        if (!subject.isHide) {
+                            return <SubjectCard data={subject} key={index} />;
+                        }
+                        return '';
+                    })}
+            </div>
         </div>
     );
 };
