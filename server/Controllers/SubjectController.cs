@@ -107,7 +107,7 @@ public class SubjectController : ControllerBase
 
             await _subjectService.UpdateAsync(id, updatedSubject);
 
-            return Ok("Add Anouncement Successful");
+            return CreatedAtAction(nameof(Get),updatedSubject);
         }
         else{
             return Ok("This is Anouncement");
@@ -298,6 +298,26 @@ public class SubjectController : ControllerBase
         }
 
         return CreatedAtAction(nameof(Get),subject.CountLikes);
+    }
+
+    [HttpGet("getanoucement")]
+    public async Task<List<Subject>> GetUserLike()
+    {
+        var subject = await _subjectService.GetAsync();
+        List<Subject> Lssubject = new List<Subject>();
+
+        if (subject is null)
+        {
+            return Lssubject;
+        }
+
+        foreach(var s in subject){
+            if(s.IsAnouncement == true){
+                Lssubject.Add(s);
+            }
+        }
+        
+        return Lssubject;
     }
 
     [HttpDelete("{id:length(24)}")]
