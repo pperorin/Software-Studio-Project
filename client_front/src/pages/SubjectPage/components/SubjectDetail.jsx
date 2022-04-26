@@ -71,8 +71,13 @@ const SubjectDetail = () => {
         <>
             {!isLoading && (
                 <div className="container addsubject-form" style={{ textAlign: 'left' }}>
-                    <a ><img src='https://cdn-icons-png.flaticon.com/512/847/847969.png' style={{ width: '50px', height: '50px' }} />&nbsp;&nbsp;&nbsp;&nbsp;{subject.username}</a>
-                    <hr/>
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+                        style={{ width: '50px', height: '50px' }}
+                        alt="profile"
+                    />
+                    &nbsp;&nbsp;&nbsp;&nbsp;{subject.username}
+                    <hr />
                     <h1 style={{ textAlign: 'left' }}>{subject.title}</h1>
                     <p className="create-time">{subject.created_At}</p>
                     <p style={{ textAlign: 'left' }}>{subject.desc}</p>

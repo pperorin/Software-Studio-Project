@@ -26,7 +26,13 @@ const CommentList = () => {
     if (allCommnets === 'ไม่มีคอมเม้นอยู่เลย') return <div></div>;
     return (
         <div className="container addsubject-form">
-            {!isLoading && allCommnets.map((comment, index) => <CommentCard data={comment} key={index} />)}
+            {!isLoading &&
+                allCommnets.map((comment, index) => {
+                    if (!comment.isHide) {
+                        return <CommentCard data={comment} key={index} />;
+                    }
+                    return '';
+                })}
         </div>
     );
 };

@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
@@ -7,7 +6,6 @@ const CommentCard = ({ data }) => {
     const user = useSelector((state) => state.auth);
     const [like, setLike] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [reload, setReload] = useState(false);
 
     useEffect(() => {
@@ -19,7 +17,7 @@ const CommentCard = ({ data }) => {
                 setLike(response.data);
                 setIsLoading(false);
             } catch (error) {
-                setError(error.message);
+                alert(error.message);
                 setIsLoading(false);
             }
         };
@@ -70,7 +68,7 @@ const CommentCard = ({ data }) => {
         } catch (error) {
             alert(error.message);
         }
-        setReload(true);
+        window.location.reload();
     };
 
     return (
