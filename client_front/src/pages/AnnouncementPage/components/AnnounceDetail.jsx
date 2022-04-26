@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AddAnnounce from './AddAnnounce';
     
-import AnnounceList from './AnnounceList';
+import AnnounceList from '../../HomePage/components/AnnounceList';
 const AnnounceDetail = ({data}) => {
     const datas={
         "title": "Announcement",

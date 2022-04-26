@@ -1,13 +1,13 @@
 import { PageLayout } from '../../components';
 import Carousel from './components/Carousel';
-import AnnounceDetail from '../AnnouncementPage/components/AnnounceDetail';
+import AnnounceList from './components/AnnounceList';
 
 const HomePage = () => {
     return (
         <PageLayout>
-            <Carousel/>
+            <Carousel />
             <div>
-                <AnnounceDetail/>
+                <AnnounceList />
             </div>
         </PageLayout>
     );

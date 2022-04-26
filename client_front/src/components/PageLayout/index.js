@@ -1,5 +1,5 @@
 import NavigationBar from './NavigationBar';
-import Footer from './Footer/Footer';
+// import Footer from './Footer/Footer';
 
 const PageLayout = (props) => {
     const { children } = props;
@@ -7,7 +7,7 @@ const PageLayout = (props) => {
         <>
             <NavigationBar />
             <main className="w-100 mb-8 ">{children}</main>
-            <Footer/>
+            {/* <Footer /> */}
         </>
     );
 };
