@@ -1,5 +1,5 @@
 const AnnounceCard = ({ data }) => {
-    return <div className="col" style={{margin:"10px 0"}}>
+    return <div className="row" style={{margin:"10px 0"}}>
         <div className="card">
             <div className="card-body" style={{margin:"0 10px"}}>
                 <h5 className="card-title">{data.username}</h5>
