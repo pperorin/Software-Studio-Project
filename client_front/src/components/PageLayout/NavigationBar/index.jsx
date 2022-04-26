@@ -32,6 +32,16 @@ const NavigationBar = () => {
                                 Subject
                             </a>
                         </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/ReligiousDay">
+                                Religious Day
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/HistoryOfBuddhism">
+                                History of Buddhism
+                            </a>
+                        </li>
                         {/* <li className="nav-item">
                             <a className="nav-link" href="/">
                                 About
