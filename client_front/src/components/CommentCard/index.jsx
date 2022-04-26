@@ -4,7 +4,6 @@ import axios from 'axios';
 
 const CommentCard = ({ data }) => {
     const user = useSelector((state) => state.auth);
-    console.log(data)
     const [like, setLike] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [reload, setReload] = useState(false);
