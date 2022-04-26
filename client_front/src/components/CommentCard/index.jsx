@@ -96,19 +96,29 @@ const CommentCard = ({ data }) => {
                         />
                         {!isLoading && <p style={{ margin: 10, flexBasis: 49.5 }}>{like.length}</p>}
                     </div>
+                    {!user.user?.isAdmin && user.user?.id === data.user_ID && (
+                        <div className="mx-auto d-flex flex-row bd-highlight float-end">
+                            <button className="btn btn-outline-danger" onClick={onAdminDeleteComment}>
+                                Delete
+                            </button>
+                        </div>
+                    )}
 
                     {user.user?.isAdmin && (
                         <div className="mx-auto d-flex flex-row bd-highlight float-end">
-                            Admin : 
+                            Admin :
                             {data.isHide ? (
                                 <button className="btn btn-outline-success mx-2" onClick={onAdminUnhideComment}>
                                     Unhide
                                 </button>
                             ) : (
-                                <button className="btn btn-outline-warning mx-2" onClick={onAdminHideComment}>Hide</button>
+                                <button className="btn btn-outline-warning mx-2" onClick={onAdminHideComment}>
+                                    Hide
+                                </button>
                             )}
-
-                            <button className="btn btn-outline-danger" onClick={onAdminDeleteComment}>Delete</button>
+                            <button className="btn btn-outline-danger" onClick={onAdminDeleteComment}>
+                                Delete
+                            </button>
                         </div>
                     )}
                 </div>

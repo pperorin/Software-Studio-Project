@@ -36,6 +36,19 @@ const Password = () => {
         }
     };
 
+    const onClickDeleteAccount = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.delete(`https://localhost:7061/api/users/${user.user.id}`, {
+                headers: { 'Content-Type': 'application/json' },
+            });
+            alert('Account deleted successfully');
+            navigate('/logout');
+        } catch (error) {
+            alert(error.message);
+        }
+    };
+
     return (
         <div>
             <Form onSubmit={onClickChangePassword}>
@@ -70,6 +83,9 @@ const Password = () => {
                         value={confirmPassword}
                     />
                 </Form.Group>
+                <Button variant="secondary" onClick={onClickDeleteAccount}>
+                    Delete Account
+                </Button>
                 <Button variant="primary float-end" type="submit">
                     Change Password
                 </Button>
