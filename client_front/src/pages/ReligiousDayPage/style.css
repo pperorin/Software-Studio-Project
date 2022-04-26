@@ -1,11 +1,14 @@
 .Title{
     float: left;
     width: 20%;
+    height: 100%;
     padding: 80px;
 }
 
 .follow{
     position: fixed;
+    padding-left: 3.3%;
+    padding-top: 3%;
 }
 
 article {
@@ -13,8 +16,15 @@ article {
     padding: 20px;
     width: 80%;
     text-align: left;
+    background-color: rgb(240, 240, 240);
 }
 
+img {
+    border-radius: 8px;
+    max-width: 100%;
+    width: auto;
+  }
 
-
-
+line {
+    color : white;
+}

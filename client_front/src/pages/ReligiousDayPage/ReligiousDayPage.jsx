@@ -1,26 +1,56 @@
 import { PageLayout } from '../../components';
 import './style.css';
+const ColoredLine = ({ color }) => (
+    <hr
+      style={{
+        color,
+        backgroundColor: color,
+        height: 1
+      }}
+    />
+  );
+
 const ReligiousDayPage = () => {
     return (
         <PageLayout>
             <div className="Title">
                 <div className="follow">
-                    <a href="#first">วันมาฆบูชา</a>
+                    <line>.</line>
+                    <br></br>
+                    <line>.</line>
+                    <br></br>
+                    <line>|</line>
                     <br></br>
                     <br></br>
-                    <a href="#second">วันวิสาขบูชา</a>
+                    <a href="#first" style={{color: 'white'}}>วันมาฆบูชา</a>
                     <br></br>
                     <br></br>
-                    <a href="#third">วันอัฏฐมีบูชา</a>
+                    <br></br>
+                    <a href="#second"style={{color: 'white'}}>วันวิสาขบูชา</a>
                     <br></br>
                     <br></br>
-                    <a href="#fouth">วันอาสาฬหบูชา</a>
+                    <br></br>
+                    <a href="#third"style={{color: 'white'}}>วันอัฏฐมีบูชา</a>
                     <br></br>
                     <br></br>
-                    <a href="#fifth">วันเข้าพรรษา</a>
+                    <br></br>
+                    <a href="#fouth"style={{color: 'white'}}>วันอาสาฬหบูชา</a>
                     <br></br>
                     <br></br>
-                    <a href="#sixth">วันออกพรรษา</a>
+                    <br></br>
+                    <a href="#fifth"style={{color: 'white'}}>วันเข้าพรรษา</a>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <a href="#sixth"style={{color: 'white'}}>วันออกพรรษา</a> 
+                    <br></br>
+                    <br></br>
+                    <line>|</line>
+                    <br></br>
+                    <line>.</line>
+                    <br></br>
+                    <line>.</line>
+                    
                 </div>
             </div>
             <article>
@@ -55,6 +85,10 @@ const ReligiousDayPage = () => {
                         6, และวันดังกล่าวตรงกับวันเพ็ญเดือน 3 ดังนั้น จึงเรียกวันนี้อีกอย่างหนึ่งว่า
                         "วันจาตุรงคสันนิบาต" หรือ วันที่มีการประชุมพร้อมด้วยองค์ 4
                     </p>
+                    <div>
+                        <ColoredLine color="black" />
+                    </div>
+                    <br></br>
                 </section>
                 <section id="second">
                     <h1>วันวิสาขบูชา</h1>
@@ -92,6 +126,10 @@ const ReligiousDayPage = () => {
                         ของพระพุทธเจ้าไว้มากที่สุด และได้นิยมประกอบพิธีบำเพ็ญบุญกุศลและประกอบพิธีพุทธบูชาต่าง ๆ
                         เพื่อเป็นการถวายสักการะรำลึกถึงแด่องค์สมเด็จพระสัมมาสัมพุทธเจ้าสืบมาจนปัจจุบัน
                     </p>
+                    <div>
+                        <ColoredLine color="black" />
+                    </div>
+                    <br></br>
                 </section>
                 <section id="third">
                     <h1>วันอัฏฐมีบูชา</h1>
@@ -128,6 +166,10 @@ const ReligiousDayPage = () => {
                         ประเพณีถวายพระเพลิงฯ จำลอง ที่วัดพระบรมธาตุทุ่งยั้ง และประเพณีอัฎฐมีบูชาของ วัดใหม่สุคนธาราม
                         ต.วัดละมุด อำเภอนครชัยศรี จังหวัดนครปฐม ที่รักษาสืบสานมายาวนานมากกว่า 120 ปีแล้ว เป็นต้น
                     </p>
+                    <div>
+                        <ColoredLine color="black" />
+                    </div>
+                    <br></br>
                 </section>
                 <section id="fouth">
                     <h1>วันอาสาฬหบูชา</h1>
@@ -168,6 +210,10 @@ const ReligiousDayPage = () => {
                         อันได้แก่วันที่ล้อแห่งพระธรรมของพระพุทธเจ้าได้หมุนไปเป็นครั้งแรก และ "วันพระสงฆ์"
                         คือวันที่มีพระสงฆ์เกิดขึ้นเป็นครั้งแรก และจัดว่าเป็น"วันพระรัตนตรัย" อีกด้วย
                     </p>
+                    <div>
+                        <ColoredLine color="black" />
+                    </div>
+                    <br></br>
                 </section>
                 <section id="fifth">
                     <h1>วันเข้าพรรษา</h1>
@@ -203,6 +249,10 @@ const ReligiousDayPage = () => {
                         เพื่อศึกษาพระธรรมวินัยจากพระสงฆ์ที่ทรงความรู้
                         ได้แลกเปลี่ยนประสบการณ์และสร้างความสามัคคีในหมู่คณะสงฆ์ด้วย
                     </p>
+                    <div>
+                        <ColoredLine color="black" />
+                    </div>
+                    <br></br>
                 </section>
                 <section id="sixth">
                     <h1>วันออกพรรษา</h1>
@@ -234,6 +284,7 @@ const ReligiousDayPage = () => {
                     </div>
                 </section>
             </article>
+            <div style={{backgroundColor: 'black', width:'1000px',height:'2280px'}}/>
         </PageLayout>
     );
 };
