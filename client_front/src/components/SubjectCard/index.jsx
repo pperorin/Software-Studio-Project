@@ -51,7 +51,7 @@ const SubjectCard = ({ data }) => {
 
     return (
         <div className="col-sm-4">
-            <div className="card" style={{ height: '300px' }}>
+            <div className="card" style={{ height: '250px' }}>
                 <div className="card-body">
                     <a><img src='https://cdn-icons-png.flaticon.com/512/847/847969.png' style={{ width: '40px', height: '40px' }} />&nbsp;&nbsp;&nbsp;&nbsp;{data.username}</a>
                     <h5 className="card-title">{data.title}</h5>
