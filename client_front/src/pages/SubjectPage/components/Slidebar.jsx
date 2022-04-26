@@ -12,7 +12,7 @@ const Sidebar = () => {
             </Link>
             <Link to="/subject/addSubject">
                 <img
-                    src="https://cdn-icons.flaticon.com/png/512/4202/premium/4202611.png?token=exp=1650989961~hmac=018120b7805013b51153785198185bdd"
+                    src="https://www.img.in.th/images/051636b4cd139d6bd3906c9ef4051c61.png"
                     style={{ width: '40px', margin: '0 10px' }}
                     alt="Create"
                 />
