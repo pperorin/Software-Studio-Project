@@ -50,7 +50,7 @@ public class SubjectController : ControllerBase
             return CreatedAtAction(nameof(Get), new { id = newSubject.Id }, newSubject);
         }
         else{
-            return Ok("You are ban.");
+            return Forbid();
         }
         
     }

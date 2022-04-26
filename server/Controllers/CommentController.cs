@@ -81,7 +81,7 @@ public class CommentController : ControllerBase
             return CreatedAtAction(nameof(Get), new { id = newComment.Id }, newComment);
         }
         else{
-            return Ok("You are ban.");
+            return Forbid();
         }
     }
 
