@@ -33,7 +33,6 @@ public class UsersController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post(User newUser)
     {
-        await _usersService.CreateAsync(newUser);
         var users = await _usersService.GetAsync();
 
         foreach(var i in users){
@@ -41,6 +40,7 @@ public class UsersController : ControllerBase
                 return Ok("Duplicate");
             }
         }
+        await _usersService.CreateAsync(newUser);
         return CreatedAtAction(nameof(Get), new { id = newUser.Id }, newUser);
     }
 
