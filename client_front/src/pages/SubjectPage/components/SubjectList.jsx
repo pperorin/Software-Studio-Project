@@ -10,7 +10,7 @@ const SubjectList = () => {
     useEffect(() => {
         const fetchAllSubjects = async () => {
             try {
-                const res = await axios.get('https://localhost:7061/api/subject');
+                const res = await axios.get('https://localhost:7061/api/subject/');
                 setAllSubjects(res.data);
                 setIsLoading(false);
             } catch (error) {

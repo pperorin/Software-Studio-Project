@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
@@ -38,7 +37,7 @@ const CommentCard = ({ data }) => {
         setReload(true);
     };
 
-    const onAdminHideComment = async () => {
+    const onClickHideComment = async () => {
         try {
             await axios.put(`https://localhost:7061/api/comment/hide/${data.id}`, {
                 headers: { 'Content-Type': 'application/json' },
@@ -50,7 +49,7 @@ const CommentCard = ({ data }) => {
         setReload(true);
     };
 
-    const onAdminUnhideComment = async () => {
+    const onClickUnhideComment = async () => {
         try {
             await axios.put(`https://localhost:7061/api/comment/appear/${data.id}`, {
                 headers: { 'Content-Type': 'application/json' },
@@ -62,7 +61,7 @@ const CommentCard = ({ data }) => {
         setReload(true);
     };
 
-    const onAdminDeleteComment = async () => {
+    const onClickDeleteComment = async () => {
         try {
             await axios.delete(`https://localhost:7061/api/comment/${data.id}`, {
                 headers: { 'Content-Type': 'application/json' },
@@ -96,19 +95,37 @@ const CommentCard = ({ data }) => {
                         />
                         {!isLoading && <p style={{ margin: 10, flexBasis: 49.5 }}>{like.length}</p>}
                     </div>
-
-                    {user.user?.isAdmin && (
+                    {!user.user?.isAdmin && user.user?.id === data.user_ID && (
                         <div className="mx-auto d-flex flex-row bd-highlight float-end">
-                            Admin : 
                             {data.isHide ? (
-                                <button className="btn btn-outline-success mx-2" onClick={onAdminUnhideComment}>
+                                <button className="btn btn-outline-success mx-2" onClick={onClickUnhideComment}>
                                     Unhide
                                 </button>
                             ) : (
-                                <button className="btn btn-outline-warning mx-2" onClick={onAdminHideComment}>Hide</button>
+                                <button className="btn btn-outline-warning mx-2" onClick={onClickHideComment}>
+                                    Hide
+                                </button>
                             )}
-
-                            <button className="btn btn-outline-danger" onClick={onAdminDeleteComment}>Delete</button>
+                            <button className="btn btn-outline-danger" onClick={onClickDeleteComment}>
+                                Delete
+                            </button>
+                        </div>
+                    )}
+                    {user.user?.isAdmin && (
+                        <div className="mx-auto d-flex flex-row bd-highlight float-end">
+                            Admin :
+                            {data.isHide ? (
+                                <button className="btn btn-outline-success mx-2" onClick={onClickUnhideComment}>
+                                    Unhide
+                                </button>
+                            ) : (
+                                <button className="btn btn-outline-warning mx-2" onClick={onClickHideComment}>
+                                    Hide
+                                </button>
+                            )}
+                            <button className="btn btn-outline-danger" onClick={onClickDeleteComment}>
+                                Delete
+                            </button>
                         </div>
                     )}
                 </div>
