@@ -1,9 +1,6 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-
 import { Route, Routes } from 'react-router-dom';
 
-import { PageLayout, SubjectCard } from '../../components';
+import { PageLayout } from '../../components';
 import AddSubject from './components/AddSubject';
 import SubjectList from './components/SubjectList';
 import SubjectDetail from './components/SubjectDetail';
