@@ -4,7 +4,7 @@ const ReligiousDayPage = () => {
     return (
         <PageLayout>
             <div>
-              ReligiousDayPage
+              <h1>ReligiousDayPage</h1>
             </div>
         </PageLayout>
     );

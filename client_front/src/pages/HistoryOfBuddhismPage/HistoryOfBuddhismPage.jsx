@@ -4,7 +4,7 @@ const HistoryOfBuddhismPage = () => {
     return (
         <PageLayout>
             <div>
-            HistoryOfBuddhismPage
+            <h1>HistoryOfBuddhismPage</h1>
             </div>
         </PageLayout>
     );

@@ -7,7 +7,7 @@ const NavigationBar = () => {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
                 <a className="navbar-brand" href="/">
-                    Navbar
+                    <img src="./navbar.png" width="30" height="30" alt=""></img>
                 </a>
                 <button
                     className="navbar-toggler"
