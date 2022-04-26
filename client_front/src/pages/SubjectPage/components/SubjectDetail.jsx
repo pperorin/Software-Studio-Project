@@ -75,15 +75,6 @@ const SubjectDetail = () => {
                     <p style={{ textAlign: 'left' }}>{subject.desc}</p>
                     {!user.user?.isAdmin && user.user?.id === subject.user_ID && (
                         <div className="mx-auto d-flex flex-row bd-highlight float-end">
-                            {subject.isHide ? (
-                                <button className="btn btn-outline-success mx-2" onClick={onClickUnHideSubject}>
-                                    Unhide
-                                </button>
-                            ) : (
-                                <button className="btn btn-outline-warning mx-2" onClick={onClickHideSubject}>
-                                    Hide
-                                </button>
-                            )}
                             <button className="btn btn-outline-danger" onClick={onClickDeleteSubject}>
                                 Delete
                             </button>
