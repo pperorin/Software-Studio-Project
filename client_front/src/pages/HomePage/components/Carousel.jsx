@@ -1,30 +1,28 @@
+import { useNavigate } from "react-router-dom";
+
 const Carousel = () => {
-    return <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
+    const navigate = useNavigate();
+    const onClicked = link => {
+        navigate(link)
+    }
+    return <div id="carouselExampleCaptions" className="carousel slide carousel-fade " role="button" data-bs-ride="carousel">
         <div className="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div className="carousel-inner">
             <div className="carousel-item active">
-                <img src="https://www.khaosod.co.th/wpapp/uploads/2019/11/%E0%B8%97%E0%B8%B4%E0%B9%89%E0%B8%87%E0%B8%AB%E0%B8%A1%E0%B8%B1%E0%B8%94wed-26%E0%B8%9E%E0%B8%A262.jpg" className="d-block w-100" alt="..."/>
+            <img src="https://imgz.io/images/2022/04/26/arisa-chattasa--n28kLvRGkg-unsplash.jpg" style={{width: '100vw',height: '400px',objectFit: 'cover'}} alt="arisa-chattasa--n28kLvRGkg-unsplash.jpg" border="0" onClick={()=>onClicked('/ReligiousDay')}/>
                     <div className="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                        <h3>Buddhist Religious Day</h3>
+                        <p>List of holidays celebrated within the Buddhist tradition.</p>
                     </div>
             </div>
             <div className="carousel-item">
-                <img src="https://online.pubhtml5.com/xtea/myfe/files/large/1.jpg?1612412547" className="d-block w-100" alt="..."/>
+                <img src="https://imgz.io/images/2022/04/26/olaf-R30h_UaeD7M-unsplash.jpg" style={{width: '100vw',height: '400px',objectFit: 'cover'}}alt="olaf-R30h_UaeD7M-unsplash.jpg" onClick={()=>onClicked('/HistoryOfBuddhism')} border="0" />
                     <div className="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
-                    </div>
-            </div>
-            <div className="carousel-item">
-                <img src="https://www.khaosod.co.th/wpapp/uploads/2019/11/%E0%B8%97%E0%B8%B4%E0%B9%89%E0%B8%87%E0%B8%AB%E0%B8%A1%E0%B8%B1%E0%B8%94wed-26%E0%B8%9E%E0%B8%A262.jpg" className="d-block w-100" alt="..."/>
-                    <div className="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
+                        <h3>History of Buddhism</h3>
+                        <p>The Brief history and the origin of Buddhism</p>
                     </div>
             </div>
         </div>
