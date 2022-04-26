@@ -73,7 +73,6 @@ const CommentCard = ({ data }) => {
         setReload(true);
     };
 
-
     return (
         <div className="col" style={{ margin: '10px 0' }}>
             <div className="card">
@@ -93,6 +92,7 @@ const CommentCard = ({ data }) => {
                             style={{ width: 30, flexBasis: 49.5 }}
                             onClick={onClickLike}
                             alt="Like Button"
+                            role="button"
                         />
                         {!isLoading && <p style={{ margin: 10, flexBasis: 49.5 }}>{like.length}</p>}
                     </div>
