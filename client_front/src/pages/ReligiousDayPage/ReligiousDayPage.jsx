@@ -3,8 +3,8 @@ import './style.css';
 const ReligiousDayPage = () => {
     return (
         <PageLayout>
-            <div class="Title">
-                <div class="follow">
+            <div className="Title">
+                <div className="follow">
                     <a href="#first">วันมาฆบูชา</a>
                     <br></br>
                     <br></br>
@@ -26,8 +26,8 @@ const ReligiousDayPage = () => {
             <article>
                 <section id="first">
                     <h1>วันมาฆบูชา</h1>
-                    <div class="row">
-                        <div class="col-7">
+                    <div className="row">
+                        <div className="col-7">
                             <p>
                                 วันมาฆบูชา (บาลี: มาฆปูชา; อักษรโรมัน: Magha Puja)
                                 เป็นวันสำคัญของชาวพุทธเถรวาทและวันหยุดราชการในประเทศไทย "มาฆบูชา" ย่อมาจาก
@@ -36,7 +36,7 @@ const ReligiousDayPage = () => {
                                 คือมีเดือน 8 สองหน (ปีอธิกมาส) ก็เลื่อนไปทำในวันเพ็ญเดือน 3 หลัง (วันเพ็ญเดือน 4).
                             </p>
                         </div>
-                        <div class="col">
+                        <div className="col">
                             <img
                                 src="https://i.ibb.co/3mxyM5d/scan063.jpg"
                                 alt="scan063"
@@ -58,8 +58,8 @@ const ReligiousDayPage = () => {
                 </section>
                 <section id="second">
                     <h1>วันวิสาขบูชา</h1>
-                    <div class="row">
-                        <div class="col-7">
+                    <div className="row">
+                        <div className="col-7">
                             <p>
                                 วันวิสาขบูชา นั้นได้รับการยกย่องจากพุทธศาสนิกชนทั่วโลกให้เป็นวันสำคัญสากลทางพระพุทธศาสนา
                                 เนื่องจากเป็นวันที่บังเกิดเหตุการณ์สำคัญ 3 เหตุการณ์
@@ -70,7 +70,7 @@ const ReligiousDayPage = () => {
                                 (อยู่ในเขตประเทศเนปาลในปัจจุบัน) และเหตุการณ์ต่อมา เมื่อ 45 ปี
                             </p>
                         </div>
-                        <div class="col">
+                        <div className="col">
                             <img
                                 src="https://i.ibb.co/hdJSfDm/1-1.jpg"
                                 alt="1-1"
@@ -95,8 +95,8 @@ const ReligiousDayPage = () => {
                 </section>
                 <section id="third">
                     <h1>วันอัฏฐมีบูชา</h1>
-                    <div class="row">
-                        <div class="col-7">
+                    <div className="row">
+                        <div className="col-7">
                             <p>
                                 วันอัฏฐมีบูชา คือวันถวายพระเพลิงพระพุทธสรีระของสมเด็จพระสัมมาสัมพุทธเจ้า
                                 (หลังเสด็จดับขันธปรินิพพานได้ 8 วัน) ถือเป็นวันสำคัญในพระพุทธศาสนาวันหนึ่ง ตรงกับวันแรม
@@ -108,7 +108,7 @@ const ReligiousDayPage = () => {
                                 อีกด้วย
                             </p>
                         </div>
-                        <div class="col">
+                        <div className="col">
                             <img
                                 src="https://i.ibb.co/1MQvQbn/thumb-file.jpg"
                                 alt="thumb-file"
@@ -131,8 +131,8 @@ const ReligiousDayPage = () => {
                 </section>
                 <section id="fouth">
                     <h1>วันอาสาฬหบูชา</h1>
-                    <div class="row">
-                        <div class="col-7">
+                    <div className="row">
+                        <div className="col-7">
                             <p>
                                 วันอาสาฬหบูชา (บาลี: อาสาฬหปูชา; อักษรโรมัน: Āsāḷha Pūjā)
                                 เป็นวันสำคัญทางศาสนาพุทธนิกายเถรวาทและวันหยุดราชการในประเทศไทย คำว่า อาสาฬหบูชา ย่อมาจาก
@@ -142,7 +142,7 @@ const ReligiousDayPage = () => {
                                 8 สองหน ก็ให้เลื่อนไปทำในวันเพ็ญเดือน 8 หลังแทน
                             </p>
                         </div>
-                        <div class="col">
+                        <div className="col">
                             <img
                                 src="https://i.ibb.co/rQFr75S/d6a368adbd17290fdde275daa3f70c72.jpg"
                                 alt="d6a368adbd17290fdde275daa3f70c72"
@@ -171,8 +171,8 @@ const ReligiousDayPage = () => {
                 </section>
                 <section id="fifth">
                     <h1>วันเข้าพรรษา</h1>
-                    <div class="row">
-                        <div class="col-7">
+                    <div className="row">
+                        <div className="col-7">
                             <p>
                                 วันเข้าพรรษา (วันแรม 1 ค่ำ เดือน 8 หรือปีอธิกมาส จะเลื่อนเป็นวันแรม 1 ค่ำเดือน 8 หลัง)
                                 หรือเทศกาลเข้าพรรษา (วันแรม 1 ค่ำ เดือน 8 ถึงวันขึ้น 15 ค่ำ เดือน 11 หรือปีอธิกมาส
@@ -184,7 +184,7 @@ const ReligiousDayPage = () => {
                                 ซึ่งพุทธศาสนิกชนชาวไทยทั้งพระมหากษัตริย์และคนทั่วไปได้สืบทอดประเพณีปฏิบัติการทำบุญในวันเข้าพรรษามาช้านานแล้วตั้งแต่สมัยสุโขทัย
                             </p>
                         </div>
-                        <div class="col">
+                        <div className="col">
                             <img
                                 src="https://i.ibb.co/q9SncV4/buddha-teach-dharma-tusita-heaven-i-1024x672.jpg"
                                 alt="buddha-teach-dharma-tusita-heaven-i-1024x672"
@@ -206,8 +206,8 @@ const ReligiousDayPage = () => {
                 </section>
                 <section id="sixth">
                     <h1>วันออกพรรษา</h1>
-                    <div class="row">
-                        <div class="col-7">
+                    <div className="row">
+                        <div className="col-7">
                             <p>
                                 เพื่อความเข้าใจ: วันสุดท้ายของการอยู่จำพรรษา 3 เดือน ของพระภิกษุ ตามคัมภีร์เรียกว่า
                                 วันปวารณา หรือ วันมหาปวารณา นั้น ตรงกับวันขึ้น 15 ค่ำ เดือน 11 เราเรียกกันว่า
@@ -223,7 +223,7 @@ const ReligiousDayPage = () => {
                                 คือวันขึ้น 15 ค่ำ เดือน 11 ส่วน "วันออกพรรษาจริง" ตามพระวินัย คือ วันแรม 1 ค่ำ เดือน 11
                             </p>
                         </div>
-                        <div class="col">
+                        <div className="col">
                             <img
                                 src="https://i.ibb.co/4sy2DS9/punsa.jpg"
                                 alt="punsa"
