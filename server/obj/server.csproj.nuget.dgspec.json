@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Mook Space\\งาน\\มหาลัย\\ปี3เทอม2\\softstudio\\Software-Studio-Project\\server\\server.csproj": {}
+    "D:\\CE\\3D\\Sem2\\Software Studio\\Software-Studio-Project\\server\\server.csproj": {}
   },
   "projects": {
-    "D:\\Mook Space\\งาน\\มหาลัย\\ปี3เทอม2\\softstudio\\Software-Studio-Project\\server\\server.csproj": {
+    "D:\\CE\\3D\\Sem2\\Software Studio\\Software-Studio-Project\\server\\server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Mook Space\\งาน\\มหาลัย\\ปี3เทอม2\\softstudio\\Software-Studio-Project\\server\\server.csproj",
+        "projectUniqueName": "D:\\CE\\3D\\Sem2\\Software Studio\\Software-Studio-Project\\server\\server.csproj",
         "projectName": "server",
-        "projectPath": "D:\\Mook Space\\งาน\\มหาลัย\\ปี3เทอม2\\softstudio\\Software-Studio-Project\\server\\server.csproj",
-        "packagesPath": "C:\\Users\\Moondamon\\.nuget\\packages\\",
-        "outputPath": "D:\\Mook Space\\งาน\\มหาลัย\\ปี3เทอม2\\softstudio\\Software-Studio-Project\\server\\obj\\",
+        "projectPath": "D:\\CE\\3D\\Sem2\\Software Studio\\Software-Studio-Project\\server\\server.csproj",
+        "packagesPath": "C:\\Users\\Zen\\.nuget\\packages\\",
+        "outputPath": "D:\\CE\\3D\\Sem2\\Software Studio\\Software-Studio-Project\\server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Moondamon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Zen\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

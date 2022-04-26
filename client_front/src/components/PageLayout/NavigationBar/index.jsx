@@ -32,23 +32,31 @@ const NavigationBar = () => {
                                 Subject
                             </a>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <a className="nav-link" href="/">
                                 About
                             </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/admin">
-                                Admin
-                            </a>
-                        </li>
-                        <li className="nav-item">
+                        </li> */}
+                        {user.user.isAdmin == true ? (
+                            <li className="nav-item">
+                                <a className="nav-link" href="/admin">
+                                    Admin
+                                </a>
+                            </li>
+                        ):(<a/>)}
+
+                        {/* <li className="nav-item">
                             <a className="nav-link" href="/register">
                                 Register
                             </a>
-                        </li>
+                        </li> */}
                     </ul>
-
+                    {user.user == null ? (
+                        <a className="justify-content-end" href="/register">
+                            Register
+                        </a>
+                    ) : (<a></a>
+                    )}
                     {user.user !== null ? (
                         <a className="justify-content-end" href="/profile">
                             <img
