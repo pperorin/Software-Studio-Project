@@ -1,0 +1,22 @@
+.Title{
+    float: left;
+    width: 20%;
+    padding: 80px;
+}
+
+.follow{
+    position: fixed;
+}
+
+article {
+    float: left;
+    padding: 20px;
+    width: 80%;
+    text-align: left;
+}
+
+img{
+    width: 300px;
+}
+
+
