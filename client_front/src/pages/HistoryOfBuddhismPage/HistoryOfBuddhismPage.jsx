@@ -15,8 +15,8 @@ const HistoryOfBuddhismPage = () => {
     return (
         <PageLayout>
             <div className="container" style={{margin:"30px 12%"}}>
-                <div>
-                    <h3><b>พุทธประวัติ</b></h3>
+                <div className='HistoryTitle'>
+                    <h2><b>พุทธประวัติ</b></h2>
                 </div>
                 <articles>
                     <b>ประสูติ </b>

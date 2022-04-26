@@ -4,7 +4,7 @@ const AboutUsPage = () => {
 
     return (
         <PageLayout>
-            <header class="bg-secondary text-center py-5 mb-4">
+            <header class="bg-black text-center py-5 mb-4">
                 <div class="container">
                     <h1 class="fw-light text-white">Team Members</h1>
                 </div>
